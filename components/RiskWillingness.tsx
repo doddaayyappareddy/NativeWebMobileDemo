@@ -1,5 +1,5 @@
 import React, { FC, ReactElement } from "react";
-import { Button, Image, Text, View, Linking, TouchableOpacity } from "react-native";
+import { Button, Image, Text, View, Linking, TouchableOpacity, Animated } from "react-native";
 import StyleSheet from 'react-native-media-query';
 // import ProgressBar from 'react-native-animated-progress';
 
@@ -39,7 +39,19 @@ export const RiskWillingness: FC<{}> = ({}): ReactElement => {
 
         button: {
             width: 30
-        }
+        },
+        progressBar: {
+            height: 7,
+            flexDirection: "row",
+            width: '90%',
+            backgroundColor: 'white',
+            borderRadius: 10,
+            marginLeft: 20
+          },
+          absoluteFill : {
+            backgroundColor: "purple",
+            width: 30
+          }
       });
     return (
       <>
@@ -48,20 +60,25 @@ export const RiskWillingness: FC<{}> = ({}): ReactElement => {
             <Text style={{marginLeft: 20, fontSize: 25}}>Your Risk Willingness</Text>
             <Text>{'\n'}</Text>
             {/* <ProgressBar progress={30} height={7} backgroundColor="#4a0072" animated={false}/> */}
-            <Text style={{marginLeft: 20, fontSize: 15}}>{willingness_text}</Text>
+            <Text style={{marginLeft: 20, marginRight: 20, fontSize: 15}}>{willingness_text}</Text>
+            <Text>{'\n'}</Text>
+            <View style={styles.progressBar}>
+                <Animated.View style={styles.absoluteFill}/>
+            </View>
+            <Text>{'\n'}</Text>
             <View style={styles.container}>
                 <Text>{'\n'}</Text>
                 <Text style={styles.heading}>Aggressive</Text>
                 <View style={{alignItems: 'center' }}>
                     <Text>{'\n'}</Text>
-                    <Image source={sampleImage} style={{width: 80, height: 80}}/>
+                    <Image source={sampleImage} style={{width: 80, height: 80, borderRadius: 40, borderWidth: 3}}/>
                     <Text>{'\n'}</Text>
                     <Text>{'\n'}</Text>
-                    <Text>Risk Return: Highest growth and loss potential,</Text>
+                    <Text><b>Risk Return</b>: Highest growth and loss potential,</Text>
                     <Text>with higher volatility</Text>
                     <Text>(Focused mostly on asset appreciation)</Text>
                     <Text>{'\n'}</Text>
-                    <Text>Mix: Mostly stocks with limited bonds</Text>
+                    <Text><b>Mix</b>: Mostly stocks with limited bonds</Text>
                     <Text>{'\n'}</Text>
                 </View>
                 
