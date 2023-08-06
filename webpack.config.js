@@ -33,16 +33,22 @@ const babelLoaderConfiguration = {
     },
   ],
 };
+
 const imageLoaderConfiguration = {
-  test: /\\\\.(gif|jpe?g|png)$/,
+ test: /\.(svg|png|jpg|jpeg|gif)$/,
+  include: [
+    path.resolve(__dirname, 'assets/images'),
+    path.resolve(__dirname, 'node_modules/@react-navigation/elements/src/assets'),
+    path.resolve(__dirname, 'node_modules/@react-navigation/elements/lib/module/assets'),
+  ],
   use: {
     loader: 'url-loader',
     options: {
-      name: '[name].[ext]',
+      name: 'assets/images/[name].[ext]',
+      esModule: false
     },
   },
 };
-
 module.exports = {
   entry: {
     app: path.join(__dirname, 'index.web.js'),
@@ -53,7 +59,7 @@ module.exports = {
     filename: 'rnw.bundle.js',
   },
   resolve: {
-    extensions: ['.web.tsx', '.web.ts', '.tsx', '.ts', '.web.js', '.js'],
+    extensions: ['.web.tsx', '.web.ts', '.tsx', '.ts', '.web.js', '.js', '.png'],
     alias: {
       'react-native$': 'react-native-web',
     },
