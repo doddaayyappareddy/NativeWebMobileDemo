@@ -6,7 +6,7 @@ import SelectList from "./SelectList";
 
 export const UserEnroll: FC<{}> = ({}): ReactElement => {
 
-    const willingness_text = "Text related to Risk Willingness will appear here. This is a placeholder. Content will be changed. This is temporary text";
+    const willingness_text = "Let's get started by learning by your investment goal - tis information will help us suggest a suitble xxxxxxxxx for you.";
     const [selected, setSelected] = React.useState("");
   
     const investerCat = [
@@ -94,7 +94,7 @@ export const UserEnroll: FC<{}> = ({}): ReactElement => {
       <>
         <View style={{backgroundColor: "#e2dede"}}>
             <Text>{'\n'}</Text>
-            <Text style={{marginLeft: 20, fontSize: 25}}>Your Risk Willingness</Text>
+            <Text style={{marginLeft: 20, fontSize: 25}}>Welcome, ABCDEF</Text>
             <Text>{'\n'}</Text>
             {/* <ProgressBar progress={30} height={7} backgroundColor="#4a0072" animated={false}/> */}
             <Text style={{marginLeft: 20, fontSize: 15}}>{willingness_text}</Text>
@@ -105,7 +105,6 @@ export const UserEnroll: FC<{}> = ({}): ReactElement => {
             <Text>{'\n'}</Text>
             <View style={styles.container}>
                 <Text>{'\n'}</Text>
-                <Text style={styles.heading}>Aggressive</Text>
                 <View style={{alignItems: 'center' }}>
                     <Text>{'\n'}</Text>
                     <Image source={require('../../assets/images/user.jpeg')}  style={{width: 100, height: 100}}/>
@@ -143,7 +142,7 @@ export const UserEnroll: FC<{}> = ({}): ReactElement => {
                               
                 </View>
                 
-                <Text style={styles.heading} onPress={() => Linking.openURL('https://google.com')}>
+                <Text style={{margin:20,fontSize:14}} onPress={() => Linking.openURL('https://google.com')}>
                     {'Why this information matters'}
                 </Text>
             </View>
