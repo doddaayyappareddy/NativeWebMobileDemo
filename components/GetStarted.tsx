@@ -57,8 +57,7 @@ export const GetStarted=() => {
     <TouchableOpacity style={styles.startButton} onPress={()=>{}}>
         <Text style={{color:'white'}}>Get Started</Text>
     </TouchableOpacity>
-
-    <Text>Ganeshaaa</Text>
+    
     </ImageBackground>
     <Text>{'\n'}</Text>
 
