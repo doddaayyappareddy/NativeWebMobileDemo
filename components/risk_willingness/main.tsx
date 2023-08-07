@@ -11,6 +11,7 @@ import { RiskWillingness } from './RiskWillingness';
 import { ScrollView } from 'react-native';
 import { ButtonsComp } from './ButtonsComp';
 import { BottomNavigation } from './BottomNavigation';
+import { Footer } from '../common_components/Footer';
 
 
 function Main(): JSX.Element {
@@ -21,6 +22,7 @@ function Main(): JSX.Element {
       <Header />
       <ScrollView>
         <RiskWillingness />
+        <Footer />
       </ScrollView>
       <ButtonsComp />
       {/* <BottomNavigation /> */}

@@ -11,7 +11,7 @@ export const Header: FC<{}> = ({ }): ReactElement => {
     heading: {
       fontFamily: "Georgia, serif",
       fontSize: 25,
-      color: "white",
+      color: "#fff",
       textAlign: "center",
       textAlignVertical: "center",
       verticalAlign: "middle",
