@@ -1,8 +1,9 @@
 import React, { FC, ReactElement } from "react";
 import { Text, View, TouchableOpacity } from "react-native";
 import StyleSheet from 'react-native-media-query';
-import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
-import { Header } from "./Header";
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { NavigationContainer } from "@react-navigation/native";
+import { UserEnroll } from "../user-enroll/UserEnroll";
 // import { Icon } from "react-native-vector-icons/Icon";
 
 const Tab = createBottomTabNavigator();
@@ -27,18 +28,14 @@ export const BottomNavigation: FC<{}> = ({ }): ReactElement => {
 
     return (
         <>
-            <Tab.Navigator>
-                <Tab.Screen
-                    name="Summary"
-                    component={Header}
-                    options={{
-                        tabBarLabel: 'Summary',
-                        // tabBarIcon: ({color, size}) => (
-                        //     <Icon name="ios-add" size={30} color={'red'} />
-                        // )
-                    }}
-                />
-            </Tab.Navigator>
+            <NavigationContainer>
+                <Tab.Navigator>
+                    <Tab.Screen name="summary" component={UserEnroll}/>
+                    <Tab.Screen name="need_help" component={UserEnroll}/>
+                    <Tab.Screen name="sign_off" component={UserEnroll}/>
+                </Tab.Navigator>
+            </NavigationContainer>
+
         </>
     );
 };

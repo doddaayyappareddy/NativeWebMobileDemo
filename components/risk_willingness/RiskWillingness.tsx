@@ -87,11 +87,11 @@ export const RiskWillingness: FC<{}> = ({ }): ReactElement => {
                         <Image source={sampleImage} style={{ width: 80, height: 80, borderRadius: 40, borderWidth: 3 }} />
                         <Text>{'\n'}</Text>
                         <Text>{'\n'}</Text>
-                        <Text><b>Risk Return</b>: Highest growth and loss potential,</Text>
+                        <Text>Risk Return: Highest growth and loss potential,</Text>
                         <Text>with higher volatility</Text>
                         <Text>(Focused mostly on asset appreciation)</Text>
                         <Text>{'\n'}</Text>
-                        <Text><b>Mix</b>: Mostly stocks with limited bonds</Text>
+                        <Text>Mix: Mostly stocks with limited bonds</Text>
                         <Text>{'\n'}</Text>
                     </View>
 
