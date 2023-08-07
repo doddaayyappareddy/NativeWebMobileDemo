@@ -11,19 +11,28 @@ export const ButtonsComp: FC<{}> = ({ }): ReactElement => {
             flexDirection: 'row',
             justifyContent: 'space-evenly',
         },
-        button: {
-            width: 30
+        next_button: {
+            backgroundColor: '#87190a',
+            width: "90%",
+            borderWidth: 2,
+            borderColor: '#87190a',
+            borderRadius: 30,
+            justifyContent: 'center',
+            alignItems: 'center',
+            marginLeft: 20,
+            marginRight: 20
         },
+        next_button_text: {
+            color: '#fff',
+            fontWeight: "bold"
+        }
     });
 
     return (
         <>
             <View style={styles.multiButtonContainer}>
-                <TouchableOpacity style={{ backgroundColor: 'white', width: 150, height: 30, borderWidth: 2, borderColor: 'red', borderRadius: 30, justifyContent: 'center', alignItems: 'center' }}>
-                    <Text>Back</Text>
-                </TouchableOpacity>
-                <TouchableOpacity style={{ backgroundColor: 'grey', width: 150, borderWidth: 2, borderColor: 'red', borderRadius: 30, justifyContent: 'center', alignItems: 'center' }}>
-                    <Text>Next</Text>
+                <TouchableOpacity style={styles.next_button}>
+                    <Text style={styles.next_button_text}>Next</Text>
                 </TouchableOpacity>
             </View>
         </>

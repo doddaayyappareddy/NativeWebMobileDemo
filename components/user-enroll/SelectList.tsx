@@ -155,7 +155,7 @@ const SelectList: React.FC<SelectListProps> =  ({
                                 (!searchicon)
                                 ?
                                 <Image 
-                                    source={require('../assets/images/search.png')}
+                                    source={require('../../assets/images/search.png')}
                                     resizeMode='contain'
                                     style={{width:20,height:20,marginRight:7}}
                                 />
@@ -181,7 +181,7 @@ const SelectList: React.FC<SelectListProps> =  ({
                                     (!closeicon)
                                     ?
                                         <Image 
-                                            source={require('../assets/images/close.png')}
+                                            source={require('../../assets/images/close.png')}
                                             resizeMode='contain'
                                             style={{width:17,height:17}}
                                         />
@@ -202,7 +202,7 @@ const SelectList: React.FC<SelectListProps> =  ({
                             (!arrowicon)
                             ?
                                 <Image 
-                                    source={require('../assets/images/chevron.png')}
+                                    source={require('../../assets/images/chevron.png')}
                                     resizeMode='contain'
                                     style={{width:20,height:20}}
                                 />

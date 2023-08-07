@@ -6,13 +6,9 @@
  */
 
 import * as React from 'react';
-import StyleSheet from 'react-native-media-query';
-import { UserRegistration } from './components/UserRegistration';
-import { Header } from './components/Header';
-import { RiskWillingness } from './components/RiskWillingness';
-import { ScrollView } from 'react-native';
-import { ButtonsComp } from './components/ButtonsComp';
-import { BottomNavigation } from './components/BottomNavigation';
+// import Main from './components/risk_willingness/main';
+import { BottomNavigation } from './components/risk_willingness/BottomNavigation';
+import Main from './components/user-enroll/main';
 
 
 function App(): JSX.Element {
@@ -20,11 +16,8 @@ function App(): JSX.Element {
 
   return (
     <> 
-      <Header />
-      <ScrollView>
-        <RiskWillingness />
-      </ScrollView>
-      <ButtonsComp />
+    <Main />
+      {/* <Main /> */}
       {/* <BottomNavigation /> */}
     </>
   );

@@ -108,7 +108,7 @@ export const UserEnroll: FC<{}> = ({}): ReactElement => {
                 <Text style={styles.heading}>Aggressive</Text>
                 <View style={{alignItems: 'center' }}>
                     <Text>{'\n'}</Text>
-                    <Image source={require('../assets/images/user.jpeg')}  style={{width: 100, height: 100}}/>
+                    <Image source={require('../../assets/images/user.jpeg')}  style={{width: 100, height: 100}}/>
                     <Text>{'\n'}</Text>
                     <View style={styles.rowContainer}>
                     <Text style={{fontSize:14}}>I'm Investing to </Text><SelectList 
