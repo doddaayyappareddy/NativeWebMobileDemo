@@ -4,7 +4,7 @@ import StyleSheet from 'react-native-media-query';
 // import ProgressBar from 'react-native-animated-progress';
 import Slider from "@react-native-community/slider";
 
-const sampleImage = require('../assets/images/Willingness.jpg');
+const sampleImage = require('../../assets/images/Willingness.jpg');
 
 export const RiskWillingness: FC<{}> = ({ }): ReactElement => {
 
@@ -15,7 +15,7 @@ export const RiskWillingness: FC<{}> = ({ }): ReactElement => {
     const { ids, styles } = StyleSheet.create({
         container: {
             flexDirection: "column",
-            backgroundColor: "white",
+            backgroundColor: "#fff",
             borderRadius: 10,
             marginLeft: 20,
             marginRight: 20,
@@ -25,7 +25,7 @@ export const RiskWillingness: FC<{}> = ({ }): ReactElement => {
         heading: {
             width: "100%",
             height: 40,
-            fontFamily: "Georgia, serif",
+            fontFamily: "Helvetica, sans-serif",
             fontSize: 20,
             marginLeft: 20,
             '@media (max-width: 1600px) and (min-width: 800px)': {
@@ -46,20 +46,31 @@ export const RiskWillingness: FC<{}> = ({ }): ReactElement => {
             height: 7,
             flexDirection: "row",
             width: '90%',
-            backgroundColor: 'white',
+            backgroundColor: '#fff',
             borderRadius: 10,
             marginLeft: 20
         },
         absoluteFill: {
             backgroundColor: "purple",
             width: 30
-        }
+        }, 
+        hyperlink: {
+            width: "100%",
+            height: 40,
+            fontFamily: "Helvetica, sans-serif",
+            fontSize: 12,
+            color: "#00698c",
+            marginLeft: 20,
+            '@media (max-width: 1600px) and (min-width: 800px)': {
+                width: 400,
+            }
+        },
     });
     return (
         <>
-            <View style={{ backgroundColor: "#e2dede" }}>
+            <View style={{ backgroundColor: "#f4f0ed" }}>
                 <Text>{'\n'}</Text>
-                <Text style={{ marginLeft: 20, fontSize: 25 }}>Your Risk Willingness</Text>
+                <Text style={{ marginLeft: 20, fontSize: 20, fontFamily: "Helvetica, sans-serif" }}>Your Risk Willingness</Text>
                 <Text>{'\n'}</Text>
                 {/* <ProgressBar progress={30} height={7} backgroundColor="#4a0072" animated={false}/> */}
                 <Text style={{ marginLeft: 20, marginRight: 20, fontSize: 15 }}>{willingness_text}</Text>
@@ -67,7 +78,7 @@ export const RiskWillingness: FC<{}> = ({ }): ReactElement => {
                 <View style={styles.progressBar}>
                     <Animated.View style={styles.absoluteFill} />
                 </View>
-                <Text>{'\n'}</Text>
+                {/* <Text>{'\n'}</Text> */}
                 <View style={styles.container}>
                     <Text>{'\n'}</Text>
                     <Text style={styles.heading}>Aggressive</Text>
@@ -85,11 +96,12 @@ export const RiskWillingness: FC<{}> = ({ }): ReactElement => {
                     </View>
 
                     <View>
-                        <Slider value={3} thumbTintColor="maroon"
-                            style={{ width: '90%', height: 50, marginLeft: 20 }}></Slider>
+                        <Slider value={8} thumbTintColor="#87190a" minimumValue={1} step={1} maximumValue={10}
+                            minimumTrackTintColor="#87190a"
+                            style={{ width: '90%', height: 50, marginLeft: 20}}></Slider>
                     </View>
 
-                    <Text style={styles.heading} onPress={() => Linking.openURL('https://google.com')}>
+                    <Text style={styles.hyperlink} onPress={() => Linking.openURL('https://google.com')}>
                         {'Learn more about risk willingness'}
                     </Text>
                 </View>

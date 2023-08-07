@@ -11,22 +11,28 @@ export const Header: FC<{}> = ({ }): ReactElement => {
     heading: {
       fontFamily: "Georgia, serif",
       fontSize: 25,
+      color: "white",
       textAlign: "center",
       textAlignVertical: "center",
       verticalAlign: "middle",
-      backgroundColor: 'red',
+      backgroundColor: '#946e3a',
+      height: 40,
       '@media (max-width: 1600px) and (min-width: 800px)': {
         width: 400,
-        height: 50
+        height: 100
       }
     },
     sub_heading: {
       fontFamily: "Georgia, serif",
       fontSize: 25,
+      color: "black",
       textAlign: "center",
       textAlignVertical: "center",
       verticalAlign: "middle",
-      backgroundColor: 'white',
+      backgroundColor: '#f4f0ed',
+      borderBottomWidth: 1,
+      borderColor: "#946e3a",
+      height: 40,
       '@media (max-width: 1600px) and (min-width: 800px)': {
         width: 400,
         height: 50
@@ -36,7 +42,7 @@ export const Header: FC<{}> = ({ }): ReactElement => {
   return (
     <>
       <View style={styles.container}>
-        <Text style={styles.heading}>Heading</Text>
+        <Text style={styles.heading}>HEADING</Text>
         <Text style={styles.sub_heading}>Sub - Heading</Text>
       </View>
     </>
