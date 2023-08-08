@@ -2,8 +2,7 @@ import React, { FC, ReactElement } from "react";
 import { Text, View, TouchableOpacity } from "react-native";
 import StyleSheet from 'react-native-media-query';
 
-export const ButtonsComp: FC<{}> = ({ }): ReactElement => {
-
+export const ButtonsComp = ({navigation}: {navigation: any}) => {
     const { ids, styles } = StyleSheet.create({
         multiButtonContainer: {
             margin: 5,
@@ -41,10 +40,10 @@ export const ButtonsComp: FC<{}> = ({ }): ReactElement => {
     return (
         <>
             <View style={styles.multiButtonContainer}>
-                <TouchableOpacity style={styles.back_button}>
+                <TouchableOpacity style={styles.back_button} onPress={() => navigation.navigate('Enroll')}>
                     <Text style={styles.back_button_text}>Back</Text>
                 </TouchableOpacity>
-                <TouchableOpacity style={styles.next_button}>
+                <TouchableOpacity style={styles.next_button} onPress={() => navigation.navigate('Start')}>
                     <Text style={styles.next_button_text}>Next</Text>
                 </TouchableOpacity>
             </View>

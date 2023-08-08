@@ -4,9 +4,8 @@ import StyleSheet from 'react-native-media-query';
 
 import image from '../../assets/images/office.jpg';
 import mobileImage from '../../assets/images/mobile.png';
-import { Footer } from "../common_components/Footer";
 
-export const GetStarted = () => {
+export const GetStarted = ({navigation}: {navigation: any}) => {
 
     const base_text = "Start investing with just $500";
     const data = [
@@ -21,7 +20,7 @@ export const GetStarted = () => {
         },
         image: {
             width: '100%',
-            height: 250,
+            height: 270,
         },
         baseText: {
             fontSize: 25,
@@ -63,7 +62,8 @@ export const GetStarted = () => {
                 <ImageBackground source={image} resizeMode='stretch' style={styles.image}>
                     <Text style={styles.baseText}>{base_text}</Text>
 
-                    <TouchableOpacity style={styles.startButton} onPress={() => { }}>
+                    <TouchableOpacity style={styles.startButton}
+                        onPress={() => navigation.navigate('Enroll')}>
                         <Text style={{ color: '#fff', fontWeight: "bold" }}>Get Started</Text>
                     </TouchableOpacity>
                 </ImageBackground>
