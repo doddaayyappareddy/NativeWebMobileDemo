@@ -1,9 +1,7 @@
 import React, { FC, ReactElement } from "react";
-import { Button, Image, Text, View, Linking, TouchableOpacity, Animated } from "react-native";
+import { Image, Text, View, Linking, TouchableOpacity, Animated } from "react-native";
 import StyleSheet from 'react-native-media-query';
-import SelectList from "./SelectList";
 import Dropdown from "../ui-componrts/Dropdown";
-// import ProgressBar from 'react-native-animated-progress';
 
 export const UserEnroll = ({navigation}: {navigation: any}) => {
 
@@ -167,7 +165,7 @@ export const UserEnroll = ({navigation}: {navigation: any}) => {
                         searchField="search"
                         placeholder={!isFocus ? 'Select' : ''}
                         searchPlaceholder="Search..."
-                        value={investerCatValue}
+                        value={investerCatValue || 'Select'}
                         onFocus={() => setIsFocus(true)}
                         onBlur={() => setIsFocus(false)}
                         onChange={(item) => {
@@ -178,14 +176,14 @@ export const UserEnroll = ({navigation}: {navigation: any}) => {
                     </View>
                     <View style={styles.rowContainer}>
                     <Text style={{fontSize:14}}>I'll start needing this money in </Text>
-                     <View style={{width:120,marginTop:-25}}>     
+                     <View style={{width:130,marginTop:-25}}>     
                      <Dropdown
                         style={[styles.dropdown, isFocus && { borderColor: 'blue' }]}
                         placeholderStyle={styles.placeholderStyle}
                         selectedTextStyle={styles.selectedTextStyle}
                         inputSearchStyle={styles.inputSearchStyle}
                         iconStyle={styles.iconStyle}
-                        data={investYears}
+                        data={investYears || 'Select'}
                         search={false}
                         maxHeight={300}
                         minHeight={100}
@@ -217,9 +215,9 @@ export const UserEnroll = ({navigation}: {navigation: any}) => {
                         minHeight={100}
                         labelField="label"
                         valueField="value"
-                        placeholder={!isFocus ? 'Select Option' : ''}
+                        placeholder={!isFocus ? 'Select' : ''}
                         searchPlaceholder="Search..."
-                        value={investAmt}
+                        value={investAmt|| 'Select'}
                         onFocus={() => setIsFocus(true)}
                         onBlur={() => setIsFocus(false)}
                         onChange={(item) => {
@@ -230,7 +228,7 @@ export const UserEnroll = ({navigation}: {navigation: any}) => {
                     </View>  
                     <View style={[{marginLeft:'2%'},styles.rowContainer]}>
                     <Text style={{fontSize:14, width:150, textAlign:"right"}}>In an emergency, I </Text>
-                    <View style={{width:130,marginTop:-25}}>     
+                    <View style={{width:100,marginTop:-25}}>     
                      <Dropdown
                         style={[styles.dropdown, isFocus && { borderColor: 'blue' }]}
                         placeholderStyle={styles.placeholderStyle}
@@ -245,7 +243,7 @@ export const UserEnroll = ({navigation}: {navigation: any}) => {
                         valueField="value"
                         placeholder={!isFocus ? 'Select' : ''}
                         searchPlaceholder="Search..."
-                        value={decesion}
+                        value={decesion || 'Select'}
                         onFocus={() => setIsFocus(true)}
                         onBlur={() => setIsFocus(false)}
                         onChange={(item) => {
