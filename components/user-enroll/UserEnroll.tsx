@@ -2,40 +2,46 @@ import React, { FC, ReactElement } from "react";
 import { Button, Image, Text, View, Linking, TouchableOpacity, Animated } from "react-native";
 import StyleSheet from 'react-native-media-query';
 import SelectList from "./SelectList";
+import Dropdown from "../ui-componrts/Dropdown";
 // import ProgressBar from 'react-native-animated-progress';
 
 export const UserEnroll = ({navigation}: {navigation: any}) => {
 
     const willingness_text = "Let's get started by learning by your investment goal - tis information will help us suggest a suitble xxxxxxxxx for you.";
     const [selected, setSelected] = React.useState("");
+    const [investerCatValue, setInvesterCatValue] = React.useState(null);
+    const [years, setYears] = React.useState(null);
+    const [investAmt, setInvestAmt] = React.useState(null);
+    const [decesion, setDecesion] = React.useState(null);
+    const [isFocus, setIsFocus] = React.useState(false);
   
     const investerCat = [
-        {key:'1', value:'retire'},
-        {key:'2', value:'student'},
-        {key:'3', value:'employee'},
-        {key:'4', value:'house worker'},
-        {key:'5', value:'gov employee'},
+        {label:'retire', value:'retire',search:'retire'},
+        {label:'student', value:'student',search:'student'},
+        {label:'employee', value:'employee',search:'employee'},
+        {label:'house worker', value:'house worker',search:'house worker'},
+        {label:'gov employee', value:'gov employee',search:'gov employee'},
     ]
 
     const investYears = [
-        {key:'1', value:'0-4 years'},
-        {key:'2', value:'5-10 years'},
-        {key:'3', value:'11-15 years'},
-        {key:'4', value:'16-20 years'},
-        {key:'5', value:'21-25 years'},
+        {label:'0-4 years', value:'0-4 years'},
+        {label:'5-10 years', value:'5-10 years'},
+        {label:'11-15 years', value:'11-15 years'},
+        {label:'16-20 years', value:'16-20 years'},
+        {label:'21-25 years', value:'21-25 years'},
     ]
 
     const initInvest = [
-        {key:'1', value:'$5k - $10k'},
-        {key:'2', value:'$11k - $20k'},
-        {key:'3', value:'$21k - $30k'},
-        {key:'4', value:'$31k - $40k'},
-        {key:'5', value:'$41k - $100k'},
+        {label:'$5k - $10k', value:'$5k - $10k'},
+        {label:'$11k - $20k', value:'$11k - $20k'},
+        {label:'v$21k - $30k', value:'$21k - $30k'},
+        {label:'$31k - $40k', value:'$31k - $40k'},
+        {label:'$41k - $100k', value:'$41k - $100k'},
     ]
 
     const investerDemand = [
-        {key:'1', value:'will'},
-        {key:'2', value:'no'},
+        {label:'will', value:'will'},
+        {label:'no', value:'no'},
     ]
   
     const {ids, styles} = StyleSheet.create({
@@ -56,7 +62,7 @@ export const UserEnroll = ({navigation}: {navigation: any}) => {
             marginLeft: 20,
             '@media (max-width: 1600px) and (min-width: 800px)': {
                 width:400,
-            }
+            },
         },
         multiButtonContainer: {
             margin: 20,
@@ -88,7 +94,41 @@ export const UserEnroll = ({navigation}: {navigation: any}) => {
             marginBottom: 20,
             textAlign:'justify',
             flexWrap:"wrap",
-        }
+        },
+        dropdown: {
+            height: 45,
+            borderColor: 'gray',
+            borderTopWidth: 0,
+            borderBottomWidth:1,
+            paddingHorizontal: 2,
+            paddingBottom:1
+          },
+          icon: {
+            marginRight: 5,
+          },
+          label: {
+            position: 'absolute',
+            backgroundColor: 'white',
+            left: 22,
+            top: 0,
+            zIndex: 999,
+            paddingHorizontal: 8,
+            fontSize: 14,
+          },
+          placeholderStyle: {
+            fontSize: 16,
+          },
+          selectedTextStyle: {
+            fontSize: 16,
+          },
+          iconStyle: {
+            width: 20,
+            height: 20,
+          },
+          inputSearchStyle: {
+            height: 40,
+            fontSize: 16,
+          },
       });
     return (
       <>
@@ -110,34 +150,111 @@ export const UserEnroll = ({navigation}: {navigation: any}) => {
                     <Image source={require('../../assets/images/user.jpeg')}  style={{width: 100, height: 100}}/>
                     <Text>{'\n'}</Text>
                     <View style={styles.rowContainer}>
-                    <Text style={{fontSize:14}}>I'm Investing to </Text><SelectList 
-                            setSelected={(val:string) => setSelected(val)} 
-                            data={investerCat} 
-                            save="value"
-                            search={false}/>
+                    <Text style={{fontSize:14}}>I'm Investing to </Text>
+                     <View style={{width:150,marginTop:-25}}>     
+                     <Dropdown
+                        style={[styles.dropdown, isFocus && { borderColor: 'blue' }]}
+                        placeholderStyle={styles.placeholderStyle}
+                        selectedTextStyle={styles.selectedTextStyle}
+                        inputSearchStyle={styles.inputSearchStyle}
+                        iconStyle={styles.iconStyle}
+                        data={investerCat}
+                        search={false}
+                        maxHeight={300}
+                        minHeight={100}
+                        labelField="label"
+                        valueField="value"
+                        searchField="search"
+                        placeholder={!isFocus ? 'Select' : ''}
+                        searchPlaceholder="Search..."
+                        value={investerCatValue}
+                        onFocus={() => setIsFocus(true)}
+                        onBlur={() => setIsFocus(false)}
+                        onChange={(item) => {
+                        setInvesterCatValue(item.value);
+                        setIsFocus(true);
+                        }}/>
+                    </View>  
                     </View>
                     <View style={styles.rowContainer}>
                     <Text style={{fontSize:14}}>I'll start needing this money in </Text>
-                    <SelectList 
-                            setSelected={(val:string) => setSelected(val)} 
-                            data={investYears} 
-                            save="value"
-                            search={false}/>
+                     <View style={{width:120,marginTop:-25}}>     
+                     <Dropdown
+                        style={[styles.dropdown, isFocus && { borderColor: 'blue' }]}
+                        placeholderStyle={styles.placeholderStyle}
+                        selectedTextStyle={styles.selectedTextStyle}
+                        inputSearchStyle={styles.inputSearchStyle}
+                        iconStyle={styles.iconStyle}
+                        data={investYears}
+                        search={false}
+                        maxHeight={300}
+                        minHeight={100}
+                        labelField="label"
+                        valueField="value"
+                        placeholder={!isFocus ? 'Select' : ''}
+                        searchPlaceholder="Search..."
+                        value={years}
+                        onFocus={() => setIsFocus(true)}
+                        onBlur={() => setIsFocus(false)}
+                        onChange={(item) => {
+                        setYears(item.value);
+                        setIsFocus(true);
+                        }}/>
+                    </View>  
                     </View> 
                     <View style={styles.rowContainer}>
-                    <Text style={{fontSize:14}}>I'll initiall invest </Text><SelectList 
-                            setSelected={(val:string) => setSelected(val)} 
-                            data={initInvest} 
-                            save="value"
-                            search={false}/>
-                    </View> 
-                    <View style={[{marginLeft:30 },styles.rowContainer]}>
-                    <Text style={{fontSize:14, width:130, textAlign:"left"}}>In an emergency, I </Text><SelectList 
-                            setSelected={(val:string) => setSelected(val)} 
-                            data={investerDemand} 
-                            save="value"
-                            search={false}/>
-                     <Text style={{fontSize:14}}>need to access this money</Text>               
+                    <Text style={{fontSize:14}}>I'll initiall invest </Text>
+                    <View style={{width:150,marginTop:-25}}>     
+                     <Dropdown
+                        style={[styles.dropdown, isFocus && { borderColor: 'blue' }]}
+                        placeholderStyle={styles.placeholderStyle}
+                        selectedTextStyle={styles.selectedTextStyle}
+                        inputSearchStyle={styles.inputSearchStyle}
+                        iconStyle={styles.iconStyle}
+                        data={initInvest}
+                        search={false}
+                        maxHeight={300}
+                        minHeight={100}
+                        labelField="label"
+                        valueField="value"
+                        placeholder={!isFocus ? 'Select Option' : ''}
+                        searchPlaceholder="Search..."
+                        value={investAmt}
+                        onFocus={() => setIsFocus(true)}
+                        onBlur={() => setIsFocus(false)}
+                        onChange={(item) => {
+                        setInvestAmt(item.value);
+                        setIsFocus(true);
+                        }}/>
+                    </View>
+                    </View>  
+                    <View style={[{marginLeft:'2%'},styles.rowContainer]}>
+                    <Text style={{fontSize:14, width:150, textAlign:"right"}}>In an emergency, I </Text>
+                    <View style={{width:130,marginTop:-25}}>     
+                     <Dropdown
+                        style={[styles.dropdown, isFocus && { borderColor: 'blue' }]}
+                        placeholderStyle={styles.placeholderStyle}
+                        selectedTextStyle={styles.selectedTextStyle}
+                        inputSearchStyle={styles.inputSearchStyle}
+                        iconStyle={styles.iconStyle}
+                        data={investerDemand}
+                        search={false}
+                        maxHeight={300}
+                        minHeight={100}
+                        labelField="label"
+                        valueField="value"
+                        placeholder={!isFocus ? 'Select' : ''}
+                        searchPlaceholder="Search..."
+                        value={decesion}
+                        onFocus={() => setIsFocus(true)}
+                        onBlur={() => setIsFocus(false)}
+                        onChange={(item) => {
+                        setDecesion(item.value);
+                        setIsFocus(true);
+                        }}/>
+                    </View>
+                     <Text style={{fontSize:14}}>need to </Text>
+                     <Text style={{marginLeft:'24%',marginTop:10}}>access this money</Text>            
                     </View> 
                               
                 </View>
