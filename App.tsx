@@ -7,9 +7,9 @@
 
 import * as React from 'react';
 // import Main from './components/risk_willingness/main';
-import { BottomNavigation } from './components/risk_willingness/BottomNavigation';
-import Main from './components/user-enroll/main';
-import { GetStarted } from './components/GetStarted';
+// import { BottomNavigation } from './components/risk_willingness/BottomNavigation';
+// import Main from './components/user-enroll/main';
+import Main from './components/get_started/Main';
 
 
 function App(): JSX.Element {
@@ -17,8 +17,8 @@ function App(): JSX.Element {
 
   return (
     <> 
-    <GetStarted />
-      {/* <Main /> */}
+    {/* <GetStarted /> */}
+      <Main />
       {/* <BottomNavigation /> */}
     </>
   );
