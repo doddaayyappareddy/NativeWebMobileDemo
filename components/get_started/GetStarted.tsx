@@ -21,7 +21,7 @@ export const GetStarted = () => {
         },
         image: {
             width: '100%',
-            height: '100%',
+            height: 250,
         },
         baseText: {
             fontSize: 25,
@@ -77,7 +77,7 @@ export const GetStarted = () => {
                         )
                     }
                 </View>
-                <View style={{ alignItems: 'center', width: '100%', height: '100%', paddingTop: 15 }}>
+                <View style={{ alignItems: 'center', width: '100%', height: 300, paddingTop: 15, paddingBottom: 20 }}>
                     <Image source={mobileImage} style={{ width: '100%', height: '100%', resizeMode: 'contain' }} />
                 </View>
             </View>
