@@ -7,28 +7,25 @@
 
 import * as React from 'react';
 import { Header } from '../common_components/Header';
-import { RiskWillingness } from './RiskWillingness';
 import { ScrollView } from 'react-native';
-import { ButtonsComp } from './ButtonsComp';
-import { BottomNavigation } from './BottomNavigation';
+import { ButtonsComp } from './ButtonComp';
+import { UserEnroll } from './UserEnroll';
 import { Footer } from '../common_components/Footer';
 
-
-function Main(): JSX.Element {
-  
+export const MainUserEnroll = ({navigation}: {navigation: any}) => {
 
   return (
     <> 
       <Header />
       <ScrollView>
-        <RiskWillingness />
+        <UserEnroll navigation={navigation} />
         <Footer />
       </ScrollView>
-      <ButtonsComp />
+      <ButtonsComp navigation={navigation} />
       {/* <BottomNavigation /> */}
     </>
   );
 }
 
 
-export default Main;
+export default MainUserEnroll;

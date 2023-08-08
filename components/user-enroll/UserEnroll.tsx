@@ -4,7 +4,7 @@ import StyleSheet from 'react-native-media-query';
 import SelectList from "./SelectList";
 // import ProgressBar from 'react-native-animated-progress';
 
-export const UserEnroll: FC<{}> = ({}): ReactElement => {
+export const UserEnroll = ({navigation}: {navigation: any}) => {
 
     const willingness_text = "Let's get started by learning by your investment goal - tis information will help us suggest a suitble xxxxxxxxx for you.";
     const [selected, setSelected] = React.useState("");

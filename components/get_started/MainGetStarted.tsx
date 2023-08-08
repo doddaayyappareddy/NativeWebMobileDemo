@@ -10,17 +10,17 @@ import { Header } from '../common_components/Header';
 import { ScrollView, View } from 'react-native';
 import { Footer } from '../common_components/Footer';
 
-import { GetStarted } from './GetStarted';
+import {GetStarted} from './GetStarted';
 
 
-function Main(): JSX.Element {
+function MainGetStarted({navigation}: {navigation: any}): JSX.Element {
 
 
     return (
         <>
             <Header />
             <ScrollView>
-                <GetStarted />
+                <GetStarted navigation={navigation} />
                 <Footer />
             </ScrollView>
             {/* <BottomNavigation /> */}
@@ -29,4 +29,4 @@ function Main(): JSX.Element {
 }
 
 
-export default Main;
+export default MainGetStarted;

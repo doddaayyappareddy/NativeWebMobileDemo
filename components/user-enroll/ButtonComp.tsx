@@ -2,8 +2,7 @@ import React, { FC, ReactElement } from "react";
 import { Text, View, TouchableOpacity } from "react-native";
 import StyleSheet from 'react-native-media-query';
 
-export const ButtonsComp: FC<{}> = ({ }): ReactElement => {
-
+export const ButtonsComp = ({navigation}: {navigation: any}) => {
     const { ids, styles } = StyleSheet.create({
         multiButtonContainer: {
             margin: 5,
@@ -13,7 +12,7 @@ export const ButtonsComp: FC<{}> = ({ }): ReactElement => {
         },
         next_button: {
             backgroundColor: '#87190a',
-            width: "90%",
+            width: "90%", height: 30,
             borderWidth: 2,
             borderColor: '#87190a',
             borderRadius: 30,
@@ -31,7 +30,7 @@ export const ButtonsComp: FC<{}> = ({ }): ReactElement => {
     return (
         <>
             <View style={styles.multiButtonContainer}>
-                <TouchableOpacity style={styles.next_button}>
+                <TouchableOpacity style={styles.next_button} onPress={() => navigation.navigate('Risk')}>
                     <Text style={styles.next_button_text}>Next</Text>
                 </TouchableOpacity>
             </View>

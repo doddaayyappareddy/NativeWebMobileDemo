@@ -6,7 +6,8 @@ import Slider from "@react-native-community/slider";
 
 const sampleImage = require('../../assets/images/Willingness.jpg');
 
-export const RiskWillingness: FC<{}> = ({ }): ReactElement => {
+export const RiskWillingness = ({navigation}: {navigation: any}) => {
+// export const RiskWillingness: FC<{}> = (): ReactElement => {
 
     const willingness_text = "Text related to Risk Willingness will appear here. This is a placeholder. Content will be changed. This is temporary text";
 
