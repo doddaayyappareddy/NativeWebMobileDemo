@@ -8,8 +8,6 @@ const sampleImage = require('../../assets/images/Willingness.jpg');
 
 export const AccountSelection = ({ navigation }: { navigation: any }) => {
 
-    const account_text = "Market fluctuations are a normal part of investing. While some investors see downturns as an opportunity, others prefer to adjust their risk.";
-
     const data = [
         {
             text: "Traditional IRA",
