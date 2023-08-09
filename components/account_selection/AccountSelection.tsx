@@ -6,16 +6,53 @@ import RadioButtonContainer from "../ui-componrts/RadioButton/RadioButtonContain
 
 const sampleImage = require('../../assets/images/Willingness.jpg');
 
-export const AccountSelection = ({navigation}: {navigation: any}) => {
+export const AccountSelection = ({ navigation }: { navigation: any }) => {
 
     const account_text = "Market fluctuations are a normal part of investing. While some investors see downturns as an opportunity, others prefer to adjust their risk.";
 
     const data = [
-        { text: "Traditional IRA" },
-        { text: "IRA Roth" },
-        { text: "Do nothing and wait it out" },
-        { text: "Switch to a more aggressive portfolio or invest more money" }
+        {
+            text: "Traditional IRA",
+            showMoreText: [
+                { text: 'Contribute pre-tax income and have taxable withdrawals.' },
+                { text: 'Potential earnings grow tax-deferred.' },
+                { text: 'Penality applied to some withdrawals made before age 59%.' },
+                { text: 'Required minimum distributions (RMDs) start at age 72.' },
+                { text: 'No age limit to begin contributing as long as you have earned income.' }
+            ]
+        },
+        {
+            text: "IRA Roth",
+            showMoreText: [
+                { text: 'Contribute pre-tax income and have taxable withdrawals.' },
+                { text: 'Potential earnings grow tax-deferred.' },
+                { text: 'Penality applied to some withdrawals made before age 59%.' },
+                { text: 'Required minimum distributions (RMDs) start at age 72.' },
+                { text: 'No age limit to begin contributing as long as you have earned income.' }
+            ]
+        },
+        {
+            text: "Do nothing and wait it out",
+            showMoreText: [
+                { text: 'Contribute pre-tax income and have taxable withdrawals.' },
+                { text: 'Potential earnings grow tax-deferred.' },
+                { text: 'Penality applied to some withdrawals made before age 59%.' },
+                { text: 'Required minimum distributions (RMDs) start at age 72.' },
+                { text: 'No age limit to begin contributing as long as you have earned income.' }
+            ]
+        },
+        {
+            text: "Switch to a more aggressive portfolio or invest more money",
+            showMoreText: [
+                { text: 'Contribute pre-tax income and have taxable withdrawals.' },
+                { text: 'Potential earnings grow tax-deferred.' },
+                { text: 'Penality applied to some withdrawals made before age 59%.' },
+                { text: 'Required minimum distributions (RMDs) start at age 72.' },
+                { text: 'No age limit to begin contributing as long as you have earned income.' }
+            ]
+        }
     ];
+
 
     const { ids, styles } = StyleSheet.create({
         container: {
@@ -57,7 +94,7 @@ export const AccountSelection = ({navigation}: {navigation: any}) => {
         absoluteFill: {
             backgroundColor: "purple",
             width: 30
-        }, 
+        },
         hyperlink: {
             width: "100%",
             height: 40,
@@ -77,7 +114,7 @@ export const AccountSelection = ({navigation}: {navigation: any}) => {
 
     return (
         <>
-           <View style={{ backgroundColor: "#f4f0ed" }}>
+            <View style={{ backgroundColor: "#f4f0ed" }}>
                 <Text>{'\n'}</Text>
                 <Text style={{ marginLeft: 20, fontSize: 20, fontFamily: "Helvetica, sans-serif" }}>Select an account</Text>
                 <Text>{'\n'}</Text>

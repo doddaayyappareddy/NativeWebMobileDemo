@@ -20,6 +20,7 @@ export default function RadioButtonContainer({ values, onPress }) {
           isChecked={isChecked}
           text={listItem.text}
           subText={listItem.subText}
+          showMoreText={listItem.showMoreText}
         />
       );
     });
