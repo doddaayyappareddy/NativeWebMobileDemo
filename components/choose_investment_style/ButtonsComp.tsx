@@ -40,10 +40,10 @@ export const ButtonsComp = ({navigation}: {navigation: any}) => {
     return (
         <>
             <View style={styles.multiButtonContainer}>
-                <TouchableOpacity style={styles.back_button} onPress={() => navigation.navigate('Enroll')}>
+                <TouchableOpacity style={styles.back_button} onPress={() => navigation.navigate('PortfolioSelection')}>
                     <Text style={styles.back_button_text}>Back</Text>
                 </TouchableOpacity>
-                <TouchableOpacity style={styles.next_button} onPress={() => navigation.navigate('MarketFluctuation')}>
+                <TouchableOpacity style={styles.next_button} onPress={() => navigation.navigate('AccountSelection')}>
                     <Text style={styles.next_button_text}>Next</Text>
                 </TouchableOpacity>
             </View>
