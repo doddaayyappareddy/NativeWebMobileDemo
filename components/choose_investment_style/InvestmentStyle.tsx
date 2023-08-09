@@ -15,11 +15,21 @@ export const InvestmentStyle = ({navigation}: {navigation: any}) => {
     const data = [
         {
             text: "Globally Diversified",
-            subText: "Exchnage Traded funds (ETFs) from different providers."
+            subText: "Exchnage Traded funds (ETFs) from different providers.",
+            showMoreText: [
+                { text: 'Contribute pre-tax income and have taxable withdrawals.' },
+                { text: 'Potential earnings grow tax-deferred.' },
+                { text: 'Penality applied to some withdrawals made before age 59%.' },
+                { text: 'Required minimum distributions (RMDs) start at age 72.' },
+                { text: 'No age limit to begin contributing as long as you have earned income.' }
+            ]
         },
         {
             text: "Sustainability Focused",
-            subText: "Divercified ETFs that incorporate environmental, social, and governance (ESG) considerations and criteria."
+            subText: "Divercified ETFs that incorporate environmental, social, and governance (ESG) considerations and criteria.",
+            showMoreText: [{
+                text: "Divercified ETFs that incorporate environmental, social, and governance (ESG) considerations and criteria."
+            }]
         }
     ];
 

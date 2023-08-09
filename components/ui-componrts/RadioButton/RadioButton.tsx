@@ -1,15 +1,23 @@
+import React from "react";
 import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 
-export default function RadioButton({ isChecked, text, onRadioButtonPress, subText }) {
+export default function RadioButton({ isChecked, text, onRadioButtonPress, subText, showMoreText }) {
+
+    const [icon, setIcon] = React.useState(true);
+
     const _renderCheckedView = () => {
         return isChecked ? (
             <View style={[styles.radioButtonIconInnerIcon]} />
         ) : null;
     };
 
+    const toggleIcon = () => {
+        return setIcon(!icon);
+    };
+
     const styles = StyleSheet.create({
         mainContainer: {
-            height: 50,
+            height: 35,
             marginTop: 5,
             marginBottom: 5,
             marginLeft: 10,
@@ -43,7 +51,7 @@ export default function RadioButton({ isChecked, text, onRadioButtonPress, subTe
         },
         radioButtonTextContainer: {
             flex: 5,
-            height: 50,
+            height: 35,
             justifyContent: "center",
             paddingLeft: 10,
         },
@@ -80,12 +88,36 @@ export default function RadioButton({ isChecked, text, onRadioButtonPress, subTe
             }
 
             {
-                subText &&
-                <View style={{ flexDirection: "row", marginLeft: 50, paddingTop: 25 }}>
-                    <Text style={{ fontSize: 15, fontWeight: 'bold' }}>{'\u002B' + '  '}</Text>
-                    <Text style={styles.radioShowMore}>Show More</Text>
+                showMoreText && !icon &&
+                <View style={{ flexDirection: "column", marginLeft: 60, paddingTop: 10 }}>
+                    {
+                        showMoreText.map((item: any) => (
+                            <View style={{ flexDirection: "row", paddingBottom: 10 }}>
+                                <Text style={{ fontSize: 8 }}>{'\u2B24' + '  '}</Text>
+                                <Text style={styles.radioButtonSubText}>{item.text}</Text>
+                            </View>
+
+                            // <Text key={item.text} style={{ fontSize: 10, paddingBottom: 10 }}>{'\u2B24' + ' '}{item.text}</Text>
+                        )
+                        )}
                 </View>
             }
+
+            {
+                showMoreText &&
+                <View style={{ flexDirection: "row", marginLeft: 50, paddingTop: 15 }}>
+                    <TouchableOpacity onPress={() => { toggleIcon() }}>
+                        {icon && <Text style={{ fontSize: 15, fontWeight: 'bold' }}>{'\u002B' + '  '}</Text>}
+                        {!icon && <Text style={{ fontSize: 15, fontWeight: 'bold' }}>{'\u2212' + '  '}</Text>}
+                    </TouchableOpacity>
+                    <TouchableOpacity onPress={() => { toggleIcon() }}>
+                        {icon && <Text style={styles.radioShowMore}>Show More</Text>}
+                        {!icon && <Text style={styles.radioShowMore}>Show Less</Text>}
+                    </TouchableOpacity>
+
+                </View>
+            }
+
         </>
     );
 
