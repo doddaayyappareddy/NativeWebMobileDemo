@@ -13,6 +13,10 @@ import MainGetStarted from './components/get_started/MainGetStarted';
 
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
+import MainMarketFluctuation from './components/market_fluctuation/MainMarketFluctuation';
+import MainPortfolioSuggestion from './components/portfolio_suggestion/MainPortfolioSuggestion';
+import MainInvestmentStyle from './components/choose_investment_style/MainInvestmentStyle';
+import MainAccountSelection from './components/account_selection/MainAccountSelection';
 
 const Stack = createNativeStackNavigator();
 
@@ -24,6 +28,10 @@ function App(): JSX.Element {
         <Stack.Screen name='Start' component={MainGetStarted}/>
         <Stack.Screen name='Enroll' component={MainUserEnroll}/>
         <Stack.Screen name='Risk' component={MainRiskWillingness}/>
+        <Stack.Screen name='MarketFluctuation' component={MainMarketFluctuation}/>
+        <Stack.Screen name='PortfolioSelection' component={MainPortfolioSuggestion}/>
+        <Stack.Screen name='InvestmentStyle' component={MainInvestmentStyle}/>
+        <Stack.Screen name='AccountSelection' component={MainAccountSelection}/>
       </Stack.Navigator>
     </NavigationContainer>
   );
