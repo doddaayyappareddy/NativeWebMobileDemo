@@ -7,7 +7,6 @@ import RadioButtonContainer from "../ui-componrts/RadioButton/RadioButtonContain
 const sampleImage = require('../../assets/images/Willingness.jpg');
 
 export const AccountSelection = ({ navigation }: { navigation: any }) => {
-
     const data = [
         {
             text: "Traditional IRA",
