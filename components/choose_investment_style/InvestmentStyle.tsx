@@ -81,6 +81,7 @@ export const InvestmentStyle = ({navigation}: {navigation: any}) => {
             fontFamily: "Helvetica, sans-serif",
             fontSize: 12,
             color: "#00698c",
+            paddingTop: 10,
             marginLeft: 20,
             '@media (max-width: 1600px) and (min-width: 800px)': {
                 width: 400,
@@ -152,6 +153,23 @@ export const InvestmentStyle = ({navigation}: {navigation: any}) => {
                         <RadioButtonContainer values={data} onPress={onRadioButtonPress} />
                     </SafeAreaView>
                     <Text>{'\n'}</Text>
+
+                    <View style={{ alignItems: 'center' }}>
+                        <View style={{ height: 1, backgroundColor: 'black', width: '95%' }} />
+                    </View>
+
+                    <Text style={styles.hyperlink} onPress={() => Linking.openURL('https://google.com')}>
+                        {'More on Investment Styles (PDF)'}
+                    </Text>
+
+                    <View style={{ alignItems: 'center' }}>
+                        <View style={{ height: 1, backgroundColor: 'black', width: '95%' }} />
+                    </View>
+
+                    <Text style={styles.hyperlink} onPress={() => Linking.openURL('https://google.com')}>
+                        {'Compare asset allocation models'}
+                    </Text>
+
                 </View>
             </View>
         </>
