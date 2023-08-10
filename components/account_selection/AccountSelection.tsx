@@ -7,12 +7,10 @@ import RadioButtonContainer from "../ui-componrts/RadioButton/RadioButtonContain
 const sampleImage = require('../../assets/images/Willingness.jpg');
 
 export const AccountSelection = ({ navigation }: { navigation: any }) => {
-
-    const account_text = "Market fluctuations are a normal part of investing. While some investors see downturns as an opportunity, others prefer to adjust their risk.";
-
     const data = [
         {
             text: "Traditional IRA",
+            subText: "Contribute pre-tax income and have taxable withdrawals.",
             showMoreText: [
                 { text: 'Contribute pre-tax income and have taxable withdrawals.' },
                 { text: 'Potential earnings grow tax-deferred.' },
@@ -22,7 +20,8 @@ export const AccountSelection = ({ navigation }: { navigation: any }) => {
             ]
         },
         {
-            text: "IRA Roth",
+            text: "Roth IRA",
+            subText: "Contribute after-tax income and have tax-free withdrawals (If income is below the limit).",
             showMoreText: [
                 { text: 'Contribute pre-tax income and have taxable withdrawals.' },
                 { text: 'Potential earnings grow tax-deferred.' },
@@ -32,7 +31,8 @@ export const AccountSelection = ({ navigation }: { navigation: any }) => {
             ]
         },
         {
-            text: "Do nothing and wait it out",
+            text: "Inherited Traditional IRA",
+            subText: "Not Eligible for cash contributions but money grows tax-deferred.",
             showMoreText: [
                 { text: 'Contribute pre-tax income and have taxable withdrawals.' },
                 { text: 'Potential earnings grow tax-deferred.' },
@@ -42,7 +42,19 @@ export const AccountSelection = ({ navigation }: { navigation: any }) => {
             ]
         },
         {
-            text: "Switch to a more aggressive portfolio or invest more money",
+            text: "Inherited Roth IRA",
+            subText: "Not Eligible for cash contributions but money grows tax-free.",
+            showMoreText: [
+                { text: 'Contribute pre-tax income and have taxable withdrawals.' },
+                { text: 'Potential earnings grow tax-deferred.' },
+                { text: 'Penality applied to some withdrawals made before age 59%.' },
+                { text: 'Required minimum distributions (RMDs) start at age 72.' },
+                { text: 'No age limit to begin contributing as long as you have earned income.' }
+            ]
+        },
+        {
+            text: "Simplified Employee Pension (SEP) IRA",
+            subText: "Employers contribute tax-deductible money for employees.",
             showMoreText: [
                 { text: 'Contribute pre-tax income and have taxable withdrawals.' },
                 { text: 'Potential earnings grow tax-deferred.' },

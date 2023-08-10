@@ -17,6 +17,8 @@ import MainMarketFluctuation from './components/market_fluctuation/MainMarketFlu
 import MainPortfolioSuggestion from './components/portfolio_suggestion/MainPortfolioSuggestion';
 import MainInvestmentStyle from './components/choose_investment_style/MainInvestmentStyle';
 import MainAccountSelection from './components/account_selection/MainAccountSelection';
+import MainTermsAlert from './components/terms_alert/MainTermsAlert';
+import MainCompletionPage from './components/completion_page/MainCompletionPage';
 
 const Stack = createNativeStackNavigator();
 
@@ -32,6 +34,8 @@ function App(): JSX.Element {
         <Stack.Screen name='PortfolioSelection' component={MainPortfolioSuggestion}/>
         <Stack.Screen name='InvestmentStyle' component={MainInvestmentStyle}/>
         <Stack.Screen name='AccountSelection' component={MainAccountSelection}/>
+        <Stack.Screen name='TermsAlert' component={MainTermsAlert}/>
+        <Stack.Screen name='CompletionPage' component={MainCompletionPage}/>
       </Stack.Navigator>
     </NavigationContainer>
   );
