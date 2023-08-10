@@ -113,27 +113,27 @@ const UserProfile = ({navigation}: {navigation: any}) => {
           <View style={styles.InputContainer}>
             <View style={styles.InnerContainer}>
               <Text style={styles.labelFont}>First name</Text>
-              <Text> Aleander</Text>
+              <Text style={styles.textValColor}> Aleander</Text>
              </View> 
               <View style={styles.InnerContainer}>
               <Text style={styles.labelFont}>Last name</Text>
-              <Text>Peter</Text>
+              <Text style={styles.textValColor}>Peter</Text>
              </View>
           </View>
           <View style={styles.InputContainer}>
           <View style={styles.InnerContainer}>
               <Text style={styles.labelFont}>Middle name (or initial)</Text>
-              <Text> Aleander</Text>
+              <Text style={styles.textValColor}> Aleander</Text>
             </View>
             <View style={styles.InnerContainer}>
             <Text style={styles.labelFont}>Suffix (Optional)</Text>
-              <Text>{''}</Text>
+            <Text style={styles.textValColor}>{'Mr'}</Text>
             </View>
           </View>
           <View style={styles.InputContainer}>
             <View>
             <Text style={styles.labelFont}>Social Security Number</Text>
-              <Text> ****2345</Text>
+            <Text style={styles.textValColor}> ****2345</Text>
             </View>
             <View style={styles.InnerContainer}>
               <Text></Text>
@@ -144,28 +144,28 @@ const UserProfile = ({navigation}: {navigation: any}) => {
           <View style={styles.InputContainer}>
           <View style={styles.InnerContainer}>
              <Text style={styles.labelFont}>Emial address</Text>
-              <Text> dhfdhfdfhdhfhfh@mail.com</Text>
+             <Text style={styles.textValColor}>test@mail.com</Text>
             </View>
             <View style={styles.InnerContainer}>
             <Text style={styles.labelFont}>Residential address</Text>
-              <Text>{'801 CHESTNUT STST. \nLOUIS, MO 63101'}</Text>
+            <Text style={styles.textValColor}>{'801 CHESTNUT STST. \nLOUIS, MO 63101'}</Text>
             </View>
           </View>
           <View style={styles.InputContainer}>
           <View style={styles.InnerContainer}>
               <Text style={styles.labelFont}>Phone number</Text>
-              <Text>(707) 766-1757</Text>
+              <Text style={styles.textValColor}>(707) 766-1757</Text>
             </View>
       
             <View style={styles.InnerContainer}>
               <Text style={styles.labelFont}>Residential address</Text>
-              <Text>{''}</Text>
+              <TextInput style={[styles.textInput,styles.textValColor]}></TextInput>
             </View>
           </View>
           <View style={styles.InputContainer}>
             <View style={styles.InnerContainer}>
               <Text style={styles.labelFont}>Phone number</Text>
-              <Text>(707) 766-1757</Text>
+              <Text style={styles.textValColor}>(707) 766-1757</Text>
             </View>
             <View style={styles.InnerContainer}>
             <Text style={styles.labelFont}>Add a mailing address</Text>
@@ -176,11 +176,11 @@ const UserProfile = ({navigation}: {navigation: any}) => {
           <View style={styles.InputContainer}>
             <View style={styles.InnerContainer}>
               <Text style={styles.labelFont}>Birthdate</Text>
-              <Text>12/09/1986</Text>
+              <TextInput value={'12/09/1986'} style={[styles.textInput,styles.textValColor]}></TextInput>
             </View>
             <View style={styles.InnerContainer}>
               <Text style={styles.labelFont}>No of Dependents</Text>
-              <Text>5</Text>
+              <TextInput style={[styles.textInput,styles.textValColor]}></TextInput>
             </View>
           </View>
 
@@ -432,6 +432,15 @@ inputSearchStyle: {
   height: 40,
   fontSize: 16,
 },
+textInput: {
+  borderBottomColor:'#eee',
+  margin:5,
+ borderBottom:5 ,
+ borderBottomWidth: 2    
+},
+textValColor:{
+ color:'#A9A9A9'
+}
 });
 
 export default UserProfile;
