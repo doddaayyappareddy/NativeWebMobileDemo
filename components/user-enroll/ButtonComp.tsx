@@ -12,7 +12,7 @@ export const ButtonsComp = ({navigation}: {navigation: any}) => {
         },
         next_button: {
             backgroundColor: '#87190a',
-            width: "90%", height: 30,
+            width: "50%", height: 30,
             borderWidth: 2,
             borderColor: '#87190a',
             borderRadius: 30,

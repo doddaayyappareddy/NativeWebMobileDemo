@@ -10,41 +10,42 @@ export const ButtonsComp = ({navigation}: {navigation: any}) => {
             flexDirection: 'row',
             justifyContent: 'space-evenly',
         },
-        back_button: {
-            backgroundColor: '#fff',
-            width: 150, height: 30,
+        next_button: {
+            backgroundColor: '#87190a',
+            width: "90%", height: 30,
             borderWidth: 2,
             borderColor: '#87190a',
             borderRadius: 30,
             justifyContent: 'center',
-            alignItems: 'center'
-        }, 
-        next_button: {
-            backgroundColor: '#87190a',
-            width: 150, borderWidth: 2,
-            borderColor: '#87190a',
-            borderRadius: 30,
-            justifyContent: 'center',
-            alignItems: 'center'
-        },
-        back_button_text: {
-            color: '#87190a',
-            fontWeight: "bold"
+            alignItems: 'center',
+            marginLeft: 20,
+            marginRight: 20
         },
         next_button_text: {
             color: '#fff',
             fontWeight: "bold"
-        }
+        },
+        continue_terms_button: {
+            backgroundColor: 'white',
+            width: "30%", height: 30,
+            borderWidth: 2,
+            borderColor: '#87190a',
+            borderRadius: 30,
+            justifyContent: 'center',
+            alignItems: 'center',
+            verticalAlign:'middle',
+          },
+          continue_button_text: {
+            color: '#87190a',
+            fontWeight: "bold"
+          },
     });
 
     return (
         <>
             <View style={styles.multiButtonContainer}>
-                <TouchableOpacity style={styles.back_button} onPress={() => navigation.navigate('InvestmentStyle')}>
-                    <Text style={styles.back_button_text}>Back</Text>
-                </TouchableOpacity>
-                <TouchableOpacity style={styles.next_button} onPress={() => navigation.navigate('UserProfileSection')}>
-                    <Text style={styles.next_button_text}>Next</Text>
+                <TouchableOpacity style={styles.continue_terms_button} onPress={() => navigation.navigate('AccountSelection')}>
+                    <Text style={styles.continue_button_text}>Back</Text>
                 </TouchableOpacity>
             </View>
         </>

@@ -19,6 +19,7 @@ import MainInvestmentStyle from './components/choose_investment_style/MainInvest
 import MainAccountSelection from './components/account_selection/MainAccountSelection';
 import MainTermsAlert from './components/terms_alert/MainTermsAlert';
 import MainCompletionPage from './components/completion_page/MainCompletionPage';
+import { MainUserProfile } from './components/user_profile/MainUserProfile';
 
 const Stack = createNativeStackNavigator();
 
@@ -34,6 +35,7 @@ function App(): JSX.Element {
         <Stack.Screen name='PortfolioSelection' component={MainPortfolioSuggestion}/>
         <Stack.Screen name='InvestmentStyle' component={MainInvestmentStyle}/>
         <Stack.Screen name='AccountSelection' component={MainAccountSelection}/>
+        <Stack.Screen name='UserProfileSection' component={MainUserProfile}/>
         <Stack.Screen name='TermsAlert' component={MainTermsAlert}/>
         <Stack.Screen name='CompletionPage' component={MainCompletionPage}/>
       </Stack.Navigator>
