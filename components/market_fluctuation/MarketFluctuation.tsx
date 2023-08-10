@@ -56,7 +56,7 @@ export const MarketFluctuation = ({ navigation }: { navigation: any }) => {
         },
         absoluteFill: {
             backgroundColor: "purple",
-            width: 30
+            width: 90
         },
         hyperlink: {
             width: "100%",

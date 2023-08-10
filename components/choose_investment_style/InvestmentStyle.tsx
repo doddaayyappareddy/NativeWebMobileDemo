@@ -73,7 +73,7 @@ export const InvestmentStyle = ({navigation}: {navigation: any}) => {
         },
         absoluteFill: {
             backgroundColor: "purple",
-            width: 30
+            width: 150
         },
         hyperlink: {
             width: "100%",
