@@ -98,7 +98,7 @@ const UserProfile = ({navigation}: {navigation: any}) => {
         <Text>{'\n'}</Text>
         <Text style={{marginLeft: 20, fontSize: 25}}>Welcome, ABCDEF</Text>
         <Text>{'\n'}</Text>
-        <Text style={{marginLeft: 20, fontSize: 15}}>{'willingness_text'}</Text>
+        <Text style={{marginLeft: 20, fontSize: 15}}>{'This information will be used for yourModerate Growth and income portfolio'}</Text>
         <Text>{'\n'}</Text>
         <View style={styles.progressBar}>
             <Animated.View style={styles.absoluteFill}/>
@@ -112,27 +112,27 @@ const UserProfile = ({navigation}: {navigation: any}) => {
         expandble={personalSection}>
           <View style={styles.InputContainer}>
             <View style={styles.InnerContainer}>
-              <Text>First name</Text>
+              <Text style={styles.labelFont}>First name</Text>
               <Text> Aleander</Text>
              </View> 
               <View style={styles.InnerContainer}>
-              <Text>Last name</Text>
+              <Text style={styles.labelFont}>Last name</Text>
               <Text>Peter</Text>
              </View>
           </View>
           <View style={styles.InputContainer}>
           <View style={styles.InnerContainer}>
-              <Text>Middle name (or initial)</Text>
+              <Text style={styles.labelFont}>Middle name (or initial)</Text>
               <Text> Aleander</Text>
             </View>
             <View style={styles.InnerContainer}>
-              <Text>Suffix (Optional)</Text>
+            <Text style={styles.labelFont}>Suffix (Optional)</Text>
               <Text>{''}</Text>
             </View>
           </View>
           <View style={styles.InputContainer}>
             <View>
-              <Text>Social Security Number</Text>
+            <Text style={styles.labelFont}>Social Security Number</Text>
               <Text> ****2345</Text>
             </View>
             <View style={styles.InnerContainer}>
@@ -143,50 +143,50 @@ const UserProfile = ({navigation}: {navigation: any}) => {
 
           <View style={styles.InputContainer}>
           <View style={styles.InnerContainer}>
-              <Text>Emial address</Text>
+             <Text style={styles.labelFont}>Emial address</Text>
               <Text> dhfdhfdfhdhfhfh@mail.com</Text>
             </View>
             <View style={styles.InnerContainer}>
-              <Text>Residential address</Text>
+            <Text style={styles.labelFont}>Residential address</Text>
               <Text>{'801 CHESTNUT STST. \nLOUIS, MO 63101'}</Text>
             </View>
           </View>
           <View style={styles.InputContainer}>
           <View style={styles.InnerContainer}>
-              <Text>Phone number</Text>
+              <Text style={styles.labelFont}>Phone number</Text>
               <Text>(707) 766-1757</Text>
             </View>
       
             <View style={styles.InnerContainer}>
-              <Text>Residential address</Text>
+              <Text style={styles.labelFont}>Residential address</Text>
               <Text>{''}</Text>
             </View>
           </View>
           <View style={styles.InputContainer}>
             <View style={styles.InnerContainer}>
-              <Text>Phone number</Text>
+              <Text style={styles.labelFont}>Phone number</Text>
               <Text>(707) 766-1757</Text>
             </View>
             <View style={styles.InnerContainer}>
-              <Text>Add a mailing address</Text>
+            <Text style={styles.labelFont}>Add a mailing address</Text>
               <Text>{''}</Text>
             </View>
           </View>
 
           <View style={styles.InputContainer}>
             <View style={styles.InnerContainer}>
-              <Text>Birthdate</Text>
+              <Text style={styles.labelFont}>Birthdate</Text>
               <Text>12/09/1986</Text>
             </View>
             <View style={styles.InnerContainer}>
-              <Text>No of Dependents</Text>
+              <Text style={styles.labelFont}>No of Dependents</Text>
               <Text>5</Text>
             </View>
           </View>
 
           <View style={styles.InputContainer}>
             <View style={styles.InnerContainer}>
-              <Text>Marital status</Text>
+             <Text style={styles.labelFont}>Marital status</Text>
               <View>
                 <Dropdown
                     style={[styles.dropdown, isFocus && { borderColor: 'blue' }]}
@@ -213,7 +213,7 @@ const UserProfile = ({navigation}: {navigation: any}) => {
 
             </View>
             <View style={styles.InnerContainer}>
-              <Text>Citizenship</Text>
+              <Text style={styles.labelFont}>Citizenship</Text>
               <View>
                 <Dropdown
                     style={[styles.dropdown, isFocus && { borderColor: 'blue' }]}
@@ -354,7 +354,7 @@ const styles = StyleSheet.create({
   InputContainer : {
     flexDirection:'row',
     justifyContent:'space-between',
-    marginTop:50,
+    marginTop:15,
     alignItems:'flex-start'
   },
  InnerContainer : {
@@ -362,9 +362,13 @@ const styles = StyleSheet.create({
     width:'40%',
     wordBreak:'break-word'
   },
+  labelFont : {
+    fontSize:14,
+    fontWeight:'bold'
+  },
 continue_button: {
     backgroundColor: '#white',
-    width: "25%", height: 30,
+    width: "35%", height: 30,
     borderWidth: 2,
     borderColor: '#87190a',
     borderRadius: 30,
