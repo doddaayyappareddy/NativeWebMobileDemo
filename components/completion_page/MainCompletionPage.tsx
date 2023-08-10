@@ -11,6 +11,7 @@ import { ScrollView } from 'react-native';
 import { BottomNavigation } from '../common_components/BottomNavigation';
 import { Footer } from '../common_components/Footer';
 import { CompletionPage } from './CompletionPage';
+import { ButtonsComp } from './ButtonsComp';
 
 
 function MainCompletionPage({navigation}: {navigation: any}): JSX.Element {
@@ -22,7 +23,7 @@ function MainCompletionPage({navigation}: {navigation: any}): JSX.Element {
         <CompletionPage navigation={navigation} />
         <Footer />
       </ScrollView>
-
+      <ButtonsComp navigation={navigation} />
     </>
   );
 }
