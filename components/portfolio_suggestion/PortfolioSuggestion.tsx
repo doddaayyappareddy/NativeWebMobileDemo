@@ -80,7 +80,7 @@ export const PortfolioSuggestion = ({navigation}: {navigation: any}) => {
         },
         absoluteFill: {
             backgroundColor: "purple",
-            width: 30
+            width: 120
         }, 
         hyperlink: {
             width: "100%",

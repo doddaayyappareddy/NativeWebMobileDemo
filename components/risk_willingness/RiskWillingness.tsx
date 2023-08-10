@@ -53,7 +53,7 @@ export const RiskWillingness = ({navigation}: {navigation: any}) => {
         },
         absoluteFill: {
             backgroundColor: "purple",
-            width: 30
+            width: 60
         }, 
         hyperlink: {
             width: "100%",

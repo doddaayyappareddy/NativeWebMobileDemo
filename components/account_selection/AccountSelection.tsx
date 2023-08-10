@@ -105,7 +105,7 @@ export const AccountSelection = ({ navigation }: { navigation: any }) => {
         },
         absoluteFill: {
             backgroundColor: "purple",
-            width: 30
+            width: 180
         },
         hyperlink: {
             width: "100%",

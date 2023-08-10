@@ -313,7 +313,7 @@ const styles = StyleSheet.create({
       },
       absoluteFill : {
         backgroundColor: "purple",
-        width: 30
+        width: 210
       },
       rowContainer: {
         flexDirection: "row",
