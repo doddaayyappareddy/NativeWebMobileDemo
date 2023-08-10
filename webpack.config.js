@@ -8,13 +8,14 @@ const compileNodeModules = [
   // 'react-native-gesture-handler',
 ].map((moduleName) => path.resolve(appDirectory, `node_modules/${moduleName}`));
 const babelLoaderConfiguration = {
-  test: /\\\\.ts$|tsx?$/,
+  test: /\\\\.ts$|tsx?|js$/,
   // Add every directory that needs to be compiled by Babel during the build.
   include: [
     path.resolve(__dirname, 'index.web.js'), // Entry to your application
     path.resolve(__dirname, 'App.tsx'), // Change this to your main App file
     path.resolve(__dirname, 'src'),
     path.resolve(__dirname, 'component'),
+    path.resolve(__dirname, 'node_modules/react-native-awesome-alerts/src'),
     ...compileNodeModules,
   ],
   use: {
