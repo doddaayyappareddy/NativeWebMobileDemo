@@ -2,7 +2,7 @@ import React, { FC, ReactElement } from "react";
 import { Text, View, TouchableOpacity } from "react-native";
 import StyleSheet from 'react-native-media-query';
 
-export const ButtonsComp = ({navigation}: {navigation: any}) => {
+export const ButtonsComp = ({ navigation }: { navigation: any }) => {
     const { ids, styles } = StyleSheet.create({
         multiButtonContainer: {
             margin: 5,
@@ -33,12 +33,12 @@ export const ButtonsComp = ({navigation}: {navigation: any}) => {
             borderRadius: 30,
             justifyContent: 'center',
             alignItems: 'center',
-            verticalAlign:'middle',
-          },
-          continue_button_text: {
+            verticalAlign: 'middle',
+        },
+        continue_button_text: {
             color: '#87190a',
             fontWeight: "bold"
-          },
+        },
     });
 
     return (
