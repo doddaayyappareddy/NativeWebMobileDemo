@@ -16,6 +16,7 @@ const babelLoaderConfiguration = {
     path.resolve(__dirname, 'src'),
     path.resolve(__dirname, 'component'),
     path.resolve(__dirname, 'node_modules/react-native-awesome-alerts/src'),
+    path.resolve(__dirname, 'node_modules/react-native-webview/lib'),
     ...compileNodeModules,
   ],
   use: {

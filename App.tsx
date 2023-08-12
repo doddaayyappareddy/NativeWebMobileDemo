@@ -20,6 +20,8 @@ import MainAccountSelection from './components/account_selection/MainAccountSele
 import MainTermsAlert from './components/terms_alert/MainTermsAlert';
 import MainCompletionPage from './components/completion_page/MainCompletionPage';
 import { MainUserProfile } from './components/user_profile/MainUserProfile';
+import MainRedirection from './components/redirection_page/MainRedirection';
+import { AccountSummary } from './components/redirection_page/AccountSummary';
 
 const Stack = createNativeStackNavigator();
 
@@ -27,7 +29,8 @@ function App(): JSX.Element {
 
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName='Start' screenOptions={{headerShown: false}}>
+      <Stack.Navigator initialRouteName='Redirect' screenOptions={{headerShown: false}}>
+      <Stack.Screen name='Redirect' component={MainRedirection}/>
         <Stack.Screen name='Start' component={MainGetStarted}/>
         <Stack.Screen name='Enroll' component={MainUserEnroll}/>
         <Stack.Screen name='Risk' component={MainRiskWillingness}/>
@@ -38,6 +41,8 @@ function App(): JSX.Element {
         <Stack.Screen name='UserProfileSection' component={MainUserProfile}/>
         <Stack.Screen name='TermsAlert' component={MainTermsAlert}/>
         <Stack.Screen name='CompletionPage' component={MainCompletionPage}/>
+        <Stack.Screen name='AccountSumaary' component={AccountSummary}/>
+
       </Stack.Navigator>
     </NavigationContainer>
   );
