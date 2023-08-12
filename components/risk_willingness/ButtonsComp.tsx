@@ -48,7 +48,7 @@ export const ButtonsComp = ({navigation}: {navigation: any}) => {
                                       <View>
                                       <View style={{marginLeft:-5, alignSelf:'center',borderBottomColor:'black',borderBottomWidth:1,height:'50%',width:'104%'}}/>
                                       <ScrollView style={{height: 60, width:'100%'}}>
-                                      <Text style={{color:'black', fontSize:12}}>{'\n' }Ganesha!! You selected Conservative Investment risk, Is this correct?
+                                      <Text style={{color:'black', fontSize:12}}>{'\n' }You selected Conservative Investment risk, Is this correct?
                                        {'\n'}{'\n'}</Text>
                                       </ScrollView><View style={{marginLeft:-5, alignSelf:'center',borderBottomColor:'black',borderBottomWidth:1,height:'50%',width:'104%'}}/>
                                       </View>

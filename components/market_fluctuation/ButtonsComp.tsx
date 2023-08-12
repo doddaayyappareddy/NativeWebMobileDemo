@@ -49,7 +49,7 @@ export const ButtonsComp = ({navigation}: {navigation: any}) => {
                                               <View style={{marginLeft:-5, alignSelf:'center',borderBottomColor:'black',borderBottomWidth:1,height:'50%',width:'104%'}}/>
                                               <ScrollView style={{height: 60, width:'100%'}}>
                                               <Text style={{color:'black', fontSize:12}}>{'\n' }
-                                              Ganesha!! Your response seems inconsistent with your investment risk answer. {'\n'}Select "No" to review or update
+                                               Your response seems inconsistent with your investment risk answer. {'\n'}Select "No" to review or update
                                                your response to the last question. Select "Yes" to continue. {'\n'}{'\n'}</Text>
                                                </ScrollView>
                                               <View style={{marginLeft:-5, alignSelf:'center',borderBottomColor:'black',borderBottomWidth:1,height:'50%',width:'104%'}}/>
