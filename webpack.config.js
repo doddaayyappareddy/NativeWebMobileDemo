@@ -6,6 +6,7 @@ const {presets, plugins} = require(`${appDirectory}/babel.config.js`);
 const compileNodeModules = [
   // Add every react-native package that needs compiling
   // 'react-native-gesture-handler',
+  'react-native-vector-icons',
 ].map((moduleName) => path.resolve(appDirectory, `node_modules/${moduleName}`));
 const babelLoaderConfiguration = {
   test: /\\\\.ts$|tsx?|js$/,
@@ -15,6 +16,7 @@ const babelLoaderConfiguration = {
     path.resolve(__dirname, 'App.tsx'), // Change this to your main App file
     path.resolve(__dirname, 'src'),
     path.resolve(__dirname, 'component'),
+    path.resolve(__dirname, 'node_modules/react-native-vector-icons/lib'),
     path.resolve(__dirname, 'node_modules/react-native-awesome-alerts/src'),
     path.resolve(__dirname, 'node_modules/react-native-webview/lib'),
     ...compileNodeModules,
@@ -27,7 +29,9 @@ const babelLoaderConfiguration = {
       plugins,
     },
   },
-};const svgLoaderConfiguration = {
+};
+
+const svgLoaderConfiguration = {
   test: /\\\\.svg$/,
   use: [
     {
@@ -35,6 +39,16 @@ const babelLoaderConfiguration = {
     },
   ],
 };
+
+// ADD THIS LINE HERE (ttfLoaderConfiguration)
+const ttfLoaderConfiguration = {
+  test: /\.ttf$/,
+  loader: 'url-loader', // or directly file-loader
+  include: [
+    path.resolve(appDirectory, 'node_modules/react-native-vector-icons'),
+  ],
+};
+
 
 const imageLoaderConfiguration = {
  test: /\.(svg|png|jpg|jpeg|gif)$/,
@@ -70,6 +84,7 @@ module.exports = {
     rules: [
       babelLoaderConfiguration,
       imageLoaderConfiguration,
+      ttfLoaderConfiguration,
       svgLoaderConfiguration,
     ],
   },

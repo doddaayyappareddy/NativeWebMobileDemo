@@ -10,18 +10,23 @@ import {
   Animated,
   Image,
   TextInput,
-  SafeAreaView
+  SafeAreaView,
+
 } from 'react-native';
 import RadioButtonContainer from '../ui-componrts/RadioButton/RadioButtonContainer';
 import Dropdown from '../ui-componrts/Dropdown';
+import CheckBox from "expo-checkbox";
+import Icon from 'react-native-vector-icons/Ionicons';
+import {useDetectDevice} from '../toolkits';
 
 
 type AccordionItemPros = PropsWithChildren<{
   title: string;
   expandble? : boolean,
+  completed? : boolean
 }>;
 
-function AccordionItem({ children, title ,expandble}: AccordionItemPros): JSX.Element {
+function AccordionItem({ children, title ,expandble,completed}: AccordionItemPros): JSX.Element {
   const [ expanded, setExpanded ] = useState(false);
 
  
@@ -41,8 +46,13 @@ function AccordionItem({ children, title ,expandble}: AccordionItemPros): JSX.El
          (expandble) && <Image style={{width:20,height:20}} source={  require('../../assets/images/down.png')  } /> 
        }
       <Text style={styles.accordTitle}>{ title }</Text>
+      {
+       completed && <Icon style={{alignSelf:'flex-end',marginLeft:'auto',color:'#3f704d'}} name="checkmark-done-circle"  size={30} />
+      }
       </TouchableOpacity>
       {  (expandble)  && body }
+      
+
 
       
     </View>
@@ -51,10 +61,28 @@ function AccordionItem({ children, title ,expandble}: AccordionItemPros): JSX.El
 
 const UserProfile = ({navigation}: {navigation: any}) => {
   const [personalSection,expandPersonalSection] = useState(true)
+  const [employmentSection,expandEmploymentSection] = useState(false)
+  const [financialSection,expandFinancialSection] = useState(false)
+  const [regulateSection,expandregulateSection] = useState(false)
+  const [designateBenSection,expandDesignateBenSection] = useState(false)
   const [trustedContactSection,expandTrustedCintactection] = useState(false)
+
+  const [personalSectionCompleted,setPersonalSectionCompleted] = useState(false)
+  const [employmentSectionCompleted,setEmploymentSectionCompleted] = useState(false)
+  const [financialSectionCompleted,setFinancialSectionCompleted] = useState(false)
+  const [regulateSectionCompleted,setRegulateSectionCompleted] = useState(false)
+  const [designateBenSectionCompleted,setdesignateBenSectionCompleted] = useState(false)
+  const [trustedContactSectionCompleted,settrustedContactSectionCompleted] = useState(false)
+
   const [maritalStatus, setMaritalStatus] = React.useState(null);
   const [citizensgip, setCitizensgip] = React.useState(null);
   const [isFocus, setIsFocus] = React.useState(false);
+  const [agree, setAgree] = useState(false);
+  const [toolTipVisible, setToolTipVisible] = useState(false);
+
+  const isMobile =useDetectDevice.isAndroid || useDetectDevice.isIOS;
+
+  
   const matiralStatusdata= [
     {label:'Single', value:'Single'},
     {label:'Married', value:'Married'},
@@ -77,20 +105,59 @@ const UserProfile = ({navigation}: {navigation: any}) => {
     }
   ]
 
+  const data1 = [
+    {
+        text: "Yes",
+    }
+  ]
+
+  const data2 = [
+    {
+        text: "No, I,ll do it later",
+    }
+  ]
+
+
   const handleButtonClick = (sectionName:String) => {
-    console.log("trustedContactSection",trustedContactSection)
-    console.log("personalSection",personalSection)
       if(sectionName==='Personal' || sectionName==='TrustedContact') {
-        expandTrustedCintactection(!trustedContactSection);
-        expandPersonalSection(!personalSection);
+        expandEmploymentSection(true);
+        expandPersonalSection(false);
+        setPersonalSectionCompleted(true);
       } 
   }
  
-  const handleTrustedButtonClick = () => {
-        expandTrustedCintactection(!trustedContactSection);
-        navigation.navigate('TermsAlert');
-      } 
+  const handleFinancialButtonClick = () => {
+    expandFinancialSection(false); 
+    expandregulateSection(true);
+    setFinancialSectionCompleted(true);
+  } 
 
+  const handleEmploymentButtonClick = () => {
+    expandEmploymentSection(false);
+    expandFinancialSection(true); 
+    setEmploymentSectionCompleted(true);
+  } 
+
+  const expandRegulateSection = () => {
+    expandDesignateBenSection(true);
+    expandregulateSection(false);
+    setRegulateSectionCompleted(true);
+  }
+
+
+  const handleDesinateClick = () => {
+    expandDesignateBenSection(false);
+    expandTrustedCintactection(true);
+    setdesignateBenSectionCompleted(true);
+  }
+
+  const handleTrustedButtonClick = () => {
+    expandTrustedCintactection(!trustedContactSection);
+    expandPersonalSection(false)
+    navigation.navigate('TermsAlert');
+  } 
+
+ 
  
   return (
     <>
@@ -109,6 +176,7 @@ const UserProfile = ({navigation}: {navigation: any}) => {
         contentInsetAdjustmentBehavior="automatic"
         style={styles.container}>
         <AccordionItem title="Personal & Contact information"
+        completed={personalSectionCompleted}
         expandble={personalSection}>
           <View style={styles.InputContainer}>
             <View style={styles.InnerContainer}>
@@ -247,13 +315,340 @@ const UserProfile = ({navigation}: {navigation: any}) => {
           </TouchableOpacity>
       </View> 
         </AccordionItem>
-        <AccordionItem title="Employment" >
+        <AccordionItem  expandble={employmentSection} 
+         completed={employmentSectionCompleted}
+        title="Employment" >
+        <View style={{justifyContent:'center',alignItems:'center'}}>
+             <Text style={styles.labelFont}>Employment Status</Text>
+              <View style={{width:'40%'}}>
+                <Dropdown
+                    style={[styles.dropdown, isFocus && { borderColor: 'blue' }]}
+                    placeholderStyle={styles.placeholderStyle}
+                    selectedTextStyle={styles.selectedTextStyle}
+                    inputSearchStyle={styles.inputSearchStyle}
+                    iconStyle={styles.iconStyle}
+                    data={matiralStatusdata || 'Select'}
+                    search={false}
+                    maxHeight={300}
+                    minHeight={100}
+                    labelField="label"
+                    valueField="value"
+                    placeholder={!isFocus ? 'Select' : ''}
+                    searchPlaceholder="Search..."
+                    value={maritalStatus}
+                    onFocus={() => setIsFocus(true)}
+                    onBlur={() => setIsFocus(false)}
+                    onChange={(item) => {
+                    setMaritalStatus(item.value);
+                    setIsFocus(true);
+                    }}/>
+                </View>
+          </View>
+          
+          <View style={styles.InputContainer}>
+          <View style={styles.InnerContainer}>
+              <Text style={styles.labelFont}>Occupation</Text>
+              <View>
+                <Dropdown
+                    style={[styles.dropdown, isFocus && { borderColor: 'blue' }]}
+                    placeholderStyle={styles.placeholderStyle}
+                    selectedTextStyle={styles.selectedTextStyle}
+                    inputSearchStyle={styles.inputSearchStyle}
+                    iconStyle={styles.iconStyle}
+                    data={citizenshipdata || 'Select'}
+                    search={false}
+                    maxHeight={300}
+                    minHeight={100}
+                    labelField="label"
+                    valueField="value"
+                    placeholder={!isFocus ? 'Select' : ''}
+                    searchPlaceholder="Search..."
+                    value={citizensgip}
+                    onFocus={() => setIsFocus(true)}
+                    onBlur={() => setIsFocus(false)}
+                    onChange={(item) => {
+                    setCitizensgip(item.value);
+                    setIsFocus(true);
+                    }}/>
+                </View>
+            </View>
+            <View style={styles.InnerContainer}>
+              <Text style={styles.labelFont}>Employee street address</Text>
+              <TextInput style={[styles.textInput,styles.textValColor]}></TextInput>
+            </View>
+          </View>
+
+          <View style={styles.InputContainer}>
+            <View style={styles.InnerContainer}>
+              <Text style={styles.labelFont}>Employer name</Text>
+              <TextInput value={'12/09/1986'} style={[styles.textInput,styles.textValColor]}></TextInput>
+            </View>
+            <View style={styles.InnerContainer}>
+              <Text style={styles.labelFont}>Address line1(optional)</Text>
+              <TextInput style={[styles.textInput,styles.textValColor]}></TextInput>
+            </View>
+          </View>
+
+          <View style={styles.InputContainer}>
+            <View style={styles.InnerContainer}>
+              <Text style={styles.labelFont}>Job title</Text>
+              <TextInput value={'12/09/1986'} style={[styles.textInput,styles.textValColor]}></TextInput>
+            </View>
+            <View style={styles.InnerContainer}>
+              <Text style={styles.labelFont}>Address line2(optional)</Text>
+              <TextInput style={[styles.textInput,styles.textValColor]}></TextInput>
+            </View>
+          </View>
+
+          <View style={styles.InputContainer}>
+            <View style={styles.InnerContainer}>
+              <Text style={styles.labelFont}>Years with employer</Text>
+              <TextInput value={'12/09/1986'} style={[styles.textInput,styles.textValColor]}></TextInput>
+            </View>
+            <View style={styles.InnerContainer}>
+              <Text style={styles.labelFont}>Zip code</Text>
+              <TextInput style={[styles.textInput,styles.textValColor]}></TextInput>
+            </View>
+          </View>
+
+          <View style={styles.InputContainer}>
+            <View style={styles.InnerContainer}>
+              <Text>{''}</Text>
+             
+            </View>
+            <View style={styles.InnerContainer}>
+              <Text style={styles.labelFont}>Business phone(optionak)</Text>
+              <TextInput style={[styles.textInput,styles.textValColor]}></TextInput>
+            </View>
+          </View>
+          <TouchableOpacity style={[{marginTop:10},styles.continue_button]} onPress={()=> handleEmploymentButtonClick()}>
+          <Text style={styles.continue_button_text}>Continue</Text>
+          </TouchableOpacity>
          </AccordionItem>
-        <AccordionItem title="Finances" >
+        <AccordionItem expandble={financialSection}  completed={financialSectionCompleted} title="Finances" >
+        <View style={{justifyContent:'flex-start',alignItems:'flex-start'}}>
+             <Text style={styles.labelFont}>Source of initial investment 
+             <Icon name="information-circle-outline" style={{display:'flex',marginLeft:'90%',marginTop:'-15%',color:'grey'}} size={30} />
+             </Text>
+              <View style={{width:'70%'}}>
+                <Dropdown
+                    style={[styles.dropdown, isFocus && { borderColor: 'blue' }]}
+                    placeholderStyle={styles.placeholderStyle}
+                    selectedTextStyle={styles.selectedTextStyle}
+                    inputSearchStyle={styles.inputSearchStyle}
+                    iconStyle={styles.iconStyle}
+                    data={matiralStatusdata || 'Select'}
+                    search={false}
+                    maxHeight={300}
+                    minHeight={100}
+                    labelField="label"
+                    valueField="value"
+                    placeholder={!isFocus ? 'Select' : ''}
+                    searchPlaceholder="Search..."
+                    value={maritalStatus}
+                    onFocus={() => setIsFocus(true)}
+                    onBlur={() => setIsFocus(false)}
+                    onChange={(item) => {
+                    setMaritalStatus(item.value);
+                    setIsFocus(true);
+                    }}/>
+                </View>
+          </View>
+          <View style={styles.checkboxWrapper}>
+            <CheckBox
+              value={agree}
+              onValueChange={() => setAgree(!agree)}
+              color={agree ? "#946e3a" : undefined}
+            />
+            <Text style={styles.checkBoxText} >
+              I have experience buying or selling stocks, bonds, options, annuities, life insurence or mutual funds,
+            </Text>
+          </View>
+          <View style={{marginTop:10,justifyContent:'flex-start',alignItems:'flex-start'}}>
+             <Text style={styles.labelFont}>Annual gross income <Icon name="information-circle-outline" style={{display:'flex',marginLeft:'100%',marginTop:'-17%',color:'grey'}} size={30} /></Text>
+              <View style={{width:'70%'}}>
+                <Dropdown
+                    style={[styles.dropdown, isFocus && { borderColor: 'blue' }]}
+                    placeholderStyle={styles.placeholderStyle}
+                    selectedTextStyle={styles.selectedTextStyle}
+                    inputSearchStyle={styles.inputSearchStyle}
+                    iconStyle={styles.iconStyle}
+                    data={matiralStatusdata || 'Select'}
+                    search={false}
+                    maxHeight={300}
+                    minHeight={100}
+                    labelField="label"
+                    valueField="value"
+                    placeholder={!isFocus ? 'Select' : ''}
+                    searchPlaceholder="Search..."
+                    value={maritalStatus}
+                    onFocus={() => setIsFocus(true)}
+                    onBlur={() => setIsFocus(false)}
+                    onChange={(item) => {
+                    setMaritalStatus(item.value);
+                    setIsFocus(true);
+                    }}/>
+                </View>
+          </View>
+          <View style={{marginTop:10,justifyContent:'flex-start',alignItems:'flex-start'}}>
+             <Text style={styles.labelFont}>Net worth <Icon name="information-circle-outline" style={{display:'flex',marginLeft:'100%',marginTop:'-40%',color:'grey'}} size={30} /></Text>
+              <View style={{width:'70%'}}>
+                <Dropdown
+                    style={[styles.dropdown, isFocus && { borderColor: 'blue' }]}
+                    placeholderStyle={styles.placeholderStyle}
+                    selectedTextStyle={styles.selectedTextStyle}
+                    inputSearchStyle={styles.inputSearchStyle}
+                    iconStyle={styles.iconStyle}
+                    data={matiralStatusdata || 'Select'}
+                    search={false}
+                    maxHeight={300}
+                    minHeight={100}
+                    labelField="label"
+                    valueField="value"
+                    placeholder={!isFocus ? 'Select' : ''}
+                    searchPlaceholder="Search..."
+                    value={maritalStatus}
+                    onFocus={() => setIsFocus(true)}
+                    onBlur={() => setIsFocus(false)}
+                    onChange={(item) => {
+                    setMaritalStatus(item.value);
+                    setIsFocus(true);
+                    }}/>
+                </View>
+          </View>
+          <View style={{marginTop:10,justifyContent:'flex-start',alignItems:'flex-start'}}>
+             <Text style={styles.labelFont}>Liquid net worth <Icon name="information-circle-outline" style={{display:'flex',marginLeft:'100%',marginTop:'-25%',color:'grey'}} size={30} /> </Text>
+              <View style={{width:'70%'}}>
+                <Dropdown
+                    style={[styles.dropdown, isFocus && { borderColor: 'blue' }]}
+                    placeholderStyle={styles.placeholderStyle}
+                    selectedTextStyle={styles.selectedTextStyle}
+                    inputSearchStyle={styles.inputSearchStyle}
+                    iconStyle={styles.iconStyle}
+                    data={matiralStatusdata || 'Select'}
+                    search={false}
+                    maxHeight={300}
+                    minHeight={100}
+                    labelField="label"
+                    valueField="value"
+                    placeholder={!isFocus ? 'Select' : ''}
+                    searchPlaceholder="Search..."
+                    value={maritalStatus}
+                    onFocus={() => setIsFocus(true)}
+                    onBlur={() => setIsFocus(false)}
+                    onChange={(item) => {
+                    setMaritalStatus(item.value);
+                    setIsFocus(true);
+                    }}/>
+                </View>
+          </View>
+          <View style={{marginTop:10,justifyContent:'flex-start',alignItems:'flex-start'}}>
+             <Text style={styles.labelFont}>Other investments <Icon name="information-circle-outline" style={{display:'flex',marginLeft:'100%',marginTop:'-20%',color:'grey'}} size={30} /></Text>
+              <View style={{width:'70%'}}>
+                <Dropdown
+                    style={[styles.dropdown, isFocus && { borderColor: 'blue' }]}
+                    placeholderStyle={styles.placeholderStyle}
+                    selectedTextStyle={styles.selectedTextStyle}
+                    inputSearchStyle={styles.inputSearchStyle}
+                    iconStyle={styles.iconStyle}
+                    data={matiralStatusdata || 'Select'}
+                    search={false}
+                    maxHeight={300}
+                    minHeight={100}
+                    labelField="label"
+                    valueField="value"
+                    placeholder={!isFocus ? 'Select' : ''}
+                    searchPlaceholder="Search..."
+                    value={maritalStatus}
+                    onFocus={() => setIsFocus(true)}
+                    onBlur={() => setIsFocus(false)}
+                    onChange={(item) => {
+                    setMaritalStatus(item.value);
+                    setIsFocus(true);
+                    }}/>
+                </View>
+          </View>
+          <View style={{marginTop:10,justifyContent:'flex-start',alignItems:'flex-start'}}>
+             <Text style={styles.labelFont}>Tax bracket <Icon name="information-circle-outline" style={{display:'flex',marginLeft:'100%',marginTop:'-30%',color:'grey'}} size={30} /></Text>
+              <View style={{width:'70%'}}>
+                <Dropdown
+                    style={[styles.dropdown, isFocus && { borderColor: 'blue' }]}
+                    placeholderStyle={styles.placeholderStyle}
+                    selectedTextStyle={styles.selectedTextStyle}
+                    inputSearchStyle={styles.inputSearchStyle}
+                    iconStyle={styles.iconStyle}
+                    data={matiralStatusdata || 'Select'}
+                    search={false}
+                    maxHeight={300}
+                    minHeight={100}
+                    labelField="label"
+                    valueField="value"
+                    placeholder={!isFocus ? 'Select' : ''}
+                    searchPlaceholder="Search..."
+                    value={maritalStatus}
+                    onFocus={() => setIsFocus(true)}
+                    onBlur={() => setIsFocus(false)}
+                    onChange={(item) => {
+                    setMaritalStatus(item.value);
+                    setIsFocus(true);
+                    }}/>
+                </View>
+          </View>
+          <TouchableOpacity style={[{marginTop:10},styles.continue_button]} onPress={()=> handleFinancialButtonClick()}>
+          <Text style={styles.continue_button_text}>Continue</Text>
+          </TouchableOpacity>
         </AccordionItem>
-        <AccordionItem title="Regulatory/Afflitiation">
+        <AccordionItem expandble={regulateSection} completed={regulateSectionCompleted} title="Regulatory/Afflitiation">
+         <Text>Any of these regulatory statements that apply to you</Text>
+          <View style={styles.checkboxWrapper}>
+            <CheckBox
+              value={agree}
+              onValueChange={() => setAgree(!agree)}
+              color={agree ? "#946e3a" : undefined}
+            />
+            <Text style={styles.checkBoxText} >
+              I am a XXXXX Employee
+            </Text>
+          </View>
+          <View style={styles.checkboxWrapper}>
+            <CheckBox
+              value={agree}
+              onValueChange={() => setAgree(!agree)}
+              color={agree ? "#946e3a" : undefined}
+            />
+            <Text style={styles.checkBoxText} >
+              I am the spouse or dependent family member of a XXXXX Employee
+            </Text>
+          </View>
+          <View style={styles.checkboxWrapper}>
+            <CheckBox
+              value={agree}
+              onValueChange={() => setAgree(!agree)}
+              color={agree ? "#946e3a" : undefined}
+            />
+            <Text style={styles.checkBoxText} >
+              I am, a memer of my immidiate family is or abussiness associate is current or former senior forgin politicol figure
+            </Text>
+          </View>
+          <TouchableOpacity style={[{marginTop:10},styles.continue_button]} onPress={()=> expandRegulateSection()}>
+          <Text style={styles.continue_button_text}>Continue</Text>
+          </TouchableOpacity>
         </AccordionItem>
-        <AccordionItem title="Designate beneficiciries" >
+        <AccordionItem expandble={designateBenSection} completed={designateBenSectionCompleted} title="Designate beneficiciries" >
+        <View style={{flexDirection:'row',marginLeft:5}}>
+        <Text>Would you like to designate beneficiciries now? <Icon name="information-circle-outline"  size={30} /></Text>
+        </View>
+         <View style={[{ flexWrap:"wrap"},styles.InputContainer]}>
+         <RadioButtonContainer values={data1} onPress={()=>console.log('')} />
+         <RadioButtonContainer values={data2} onPress={()=>console.log('')} />
+         </View>
+         <View style={{flexDirection:'row',backgroundColor:"#DCDCDC",borderRadius:30,padding:5}}>
+         <Icon name="information-circle-outline"  size={10} />
+         <Text style={{fontSize:10,marginLeft:2}}>If you haven't choosen a beneficiary at the time of your deth, your assets will be distributed as outlined in the beneficiary section of the IRA custodial Agreement</Text>
+         </View>
+         <TouchableOpacity style={[{marginTop:10},styles.continue_button]} onPress={()=> handleDesinateClick()}>
+          <Text style={styles.continue_button_text}>Continue</Text>
+          </TouchableOpacity>
         </AccordionItem>
         <AccordionItem title="Trusted Contact" 
          expandble={trustedContactSection}>
@@ -364,7 +759,8 @@ const styles = StyleSheet.create({
   },
   labelFont : {
     fontSize:14,
-    fontWeight:'bold'
+    fontWeight:'bold',
+    maxHeight:60,
   },
 continue_button: {
     backgroundColor: '#white',
@@ -433,13 +829,34 @@ inputSearchStyle: {
   fontSize: 16,
 },
 textInput: {
+  height:40,
   borderBottomColor:'#eee',
   margin:5,
- borderBottom:5 ,
  borderBottomWidth: 2    
 },
 textValColor:{
  color:'#A9A9A9'
+},
+checkboxWrapper: {
+  display: "flex",
+    flexDirection: "row",
+    alignContent: "center",
+    paddingVertical: 15,
+},
+checkBoxText: {
+  lineHeight: 20,
+  marginLeft: 10,
+},
+IconContainer: {
+  flex: 1,
+  justifyContent: "center",
+  alignItems: "center",
+  backgroundColor: "#F5FCFF",
+  flexDirection: "column"
+},
+fonticon: {
+  fontSize: 40,
+  marginTop: 30
 }
 });
 

@@ -46,6 +46,7 @@ export const UserEnroll = ({navigation}: {navigation: any}) => {
         container: {
             flexDirection: "column",
             backgroundColor: "white",
+            fontFamily: "roboto",
             borderRadius: 10,
             marginLeft: 20,
             marginRight: 20,
@@ -176,7 +177,7 @@ export const UserEnroll = ({navigation}: {navigation: any}) => {
                     </View>
                     <View style={styles.rowContainer}>
                     <Text style={{fontSize:14}}>I'll start needing this money in </Text>
-                     <View style={{width:130,marginTop:-25}}>     
+                     <View style={{width:125,marginTop:-25}}>     
                      <Dropdown
                         style={[styles.dropdown, isFocus && { borderColor: 'blue' }]}
                         placeholderStyle={styles.placeholderStyle}
@@ -189,7 +190,7 @@ export const UserEnroll = ({navigation}: {navigation: any}) => {
                         minHeight={100}
                         labelField="label"
                         valueField="value"
-                        placeholder={!isFocus ? 'Select' : ''}
+                        placeholder={!years ? 'Select' : ''}
                         searchPlaceholder="Search..."
                         value={years}
                         onFocus={() => setIsFocus(true)}
