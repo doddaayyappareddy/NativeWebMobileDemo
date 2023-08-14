@@ -5,12 +5,15 @@ import Slider from "@react-native-community/slider";
 import RadioButton from "../ui-componrts/RadioButton/RadioButton";
 import { SafeAreaView } from "react-native";
 import RadioButtonContainer from "../ui-componrts/RadioButton/RadioButtonContainer";
+import PieChart from 'react-native-pie-chart';
 
 const sampleImage = require('../../assets/images/Willingness.jpg');
 
 export const InvestmentStyle = ({navigation}: {navigation: any}) => {
 
     const investment_text = "For your Moderate Growth and Income portfolio";
+    const series =[123, 321, 123, 789, 537, 420, 170, 560];
+    const sliceColor = ['#7BCCB5', '#15317E', '#FF9100', '#8D918D', '#98AFC7', '#307D7E', '#BCE954', '#FBE7A1'];
 
     const data = [
         {
@@ -77,7 +80,7 @@ export const InvestmentStyle = ({navigation}: {navigation: any}) => {
             width: 150
         },
         hyperlink: {
-            width: "100%",
+
             height: 40,
             fontFamily: "Helvetica, sans-serif",
             fontSize: 12,
@@ -167,10 +170,12 @@ export const InvestmentStyle = ({navigation}: {navigation: any}) => {
                         <View style={{ height: 1, backgroundColor: 'black', width: '95%' }} />
                     </View>
 
+                    <View style={{marginLeft:20, paddingTop: 20, paddingBottom:20, flexDirection:'row'}}>
+                    <PieChart widthAndHeight ={55} series={series} sliceColor={sliceColor} coverRadius={0.55} coverFill={'#FFF'} />
                     <Text style={styles.hyperlink} onPress={() => Linking.openURL('https://google.com')}>
                         {'Compare asset allocation models'}
                     </Text>
-
+                    </View>
                 </View>
             </View>
         </>
