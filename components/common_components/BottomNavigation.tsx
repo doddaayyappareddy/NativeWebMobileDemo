@@ -28,13 +28,13 @@ export const BottomNavigation = ({ navigation }: { navigation: any }) => {
     return (
         <>
             <View style={styles.multiButtonContainer}>
-                <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('Enroll')}>
+                <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('Start')}>
                     <View style={{ alignItems: 'center' }}>
                         <Icon name="home-outline" size={15} />
                         <Text style={styles.button_text}>Accounts</Text>
                     </View>
                 </TouchableOpacity>
-                <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('Enroll')}>
+                <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('NeedHelp')}>
                     <View style={{ alignItems: 'center' }}>
                         <Icon name="help-circle-outline" size={15} />
                         <Text style={styles.button_text}>Need Help</Text>
