@@ -23,7 +23,8 @@ function MainAccountSelection({navigation}: {navigation: any}): JSX.Element {
         <AccountSelection navigation={navigation} />
         <Footer />
       </ScrollView>
-      <ButtonsComp navigation={navigation} />
+      <ButtonsComp navigation={navigation} />      
+      <BottomNavigation navigation={navigation}  />
     </>
   );
 }

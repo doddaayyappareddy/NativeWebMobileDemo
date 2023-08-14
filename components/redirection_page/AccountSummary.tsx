@@ -84,7 +84,7 @@ export const AccountSummary = ({ navigation }: { navigation: any }) => {
                     <TouchableOpacity style={styles.back_button} onPress={() => navigation.navigate('Redirect')}>
                         <Text style={styles.back_button_text}>Back</Text>
                     </TouchableOpacity>
-                        <iframe src="https://jsonplaceholder.typicode.com/guide/" height={'100%'} width={'100%'} />
+                        <iframe src="https://jsonplaceholder.typicode.com/guide/" height={'1000'} width={'100%'} />
                     </View>
                     // console.log('Hello')
                 ) : (

@@ -27,7 +27,6 @@ export const Redirection = ({ navigation }: { navigation: any }) => {
             fontFamily: "Helvetica, sans-serif",
             fontSize: 25,
             marginTop: 30,
-            alignText: 'center',
             justifyContent: 'center'
         },
 

@@ -1,7 +1,8 @@
 import React from "react";
-import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import { Linking, StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import Icon from "react-native-vector-icons/Ionicons";
 
-export default function RadioButton({ isChecked, text, onRadioButtonPress, subText, showMoreText }) {
+export default function RadioButton({ isChecked, text, onRadioButtonPress, subText, showMoreText, alertText }) {
 
     const [icon, setIcon] = React.useState(true);
 
@@ -66,6 +67,17 @@ export default function RadioButton({ isChecked, text, onRadioButtonPress, subTe
             fontSize: 12,
             paddingLeft: 5,
             fontWeight: 'bold'
+        }, 
+        hyperlink: {
+            width: "100%",
+            fontFamily: "Helvetica, sans-serif",
+            fontSize: 10,
+            color: "#00698c",
+            marginBottom: 10,
+            marginLeft: 30,
+            '@media (max-width: 1600px) and (min-width: 800px)': {
+                width: 400,
+            }
         },
     });
 
@@ -89,7 +101,7 @@ export default function RadioButton({ isChecked, text, onRadioButtonPress, subTe
 
             {
                 showMoreText && !icon &&
-                <View style={{ flexDirection: "column", marginLeft: 60, paddingTop: 10 }}>
+                <View style={{ flexDirection: "column", marginLeft: 50, paddingTop: 10 }}>
                     {
                         showMoreText.map((item: any) => (
                             <View style={{ flexDirection: "row", paddingBottom: 10 }}>
@@ -115,6 +127,27 @@ export default function RadioButton({ isChecked, text, onRadioButtonPress, subTe
                         {!icon && <Text style={styles.radioShowMore}>Show Less</Text>}
                     </TouchableOpacity>
 
+                </View>
+            }
+
+            {
+                alertText &&
+                <View style={{ flexDirection: "column", marginLeft: 50, paddingTop: 15, backgroundColor: '#dcdcdc', marginRight: 10, marginTop: 20, borderRadius: 10 }}>
+                    <View style={{ marginLeft: 10, marginBottom: 10,  flexDirection: "row"}}>
+                    {
+                        alertText.map((item: any) => (
+                            <>
+                                <Icon name="lock-closed" size={15} />
+                                <Text style={{ fontSize: 10, marginLeft: 10 }}>{item.text}</Text>
+                            </>
+                        ))
+                    }
+                </View>
+                <View> 
+                    <Text style={styles.hyperlink} onPress={() => Linking.openURL('https://google.com')}>
+                        {'Learn more'}
+                    </Text>
+                </View>
                 </View>
             }
 

@@ -22,6 +22,8 @@ import MainCompletionPage from './components/completion_page/MainCompletionPage'
 import { MainUserProfile } from './components/user_profile/MainUserProfile';
 import MainRedirection from './components/redirection_page/MainRedirection';
 import { AccountSummary } from './components/redirection_page/AccountSummary';
+import { SignOff } from './components/sign_off/SignOff';
+import MainSignOff from './components/sign_off/MainSignOff';
 
 const Stack = createNativeStackNavigator();
 
@@ -42,7 +44,7 @@ function App(): JSX.Element {
         <Stack.Screen name='TermsAlert' component={MainTermsAlert}/>
         <Stack.Screen name='CompletionPage' component={MainCompletionPage}/>
         <Stack.Screen name='AccountSumaary' component={AccountSummary}/>
-
+        <Stack.Screen name='SignOff' component={MainSignOff}/>
       </Stack.Navigator>
     </NavigationContainer>
   );

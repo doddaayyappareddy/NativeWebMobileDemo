@@ -24,7 +24,7 @@ function MainMarketFluctuation({navigation}: {navigation: any}): JSX.Element {
         <Footer />
       </ScrollView>
       <ButtonsComp navigation={navigation} />
-      {/* <BottomNavigation /> */}
+      <BottomNavigation navigation={navigation} />
     </>
   );
 }

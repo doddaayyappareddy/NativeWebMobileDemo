@@ -21,6 +21,7 @@ export default function RadioButtonContainer({ values, onPress }) {
           text={listItem.text}
           subText={listItem.subText}
           showMoreText={listItem.showMoreText}
+          alertText={listItem.alertText}
         />
       );
     });

@@ -15,21 +15,22 @@ export const InvestmentStyle = ({navigation}: {navigation: any}) => {
     const data = [
         {
             text: "Globally Diversified",
-            subText: "Exchnage Traded funds (ETFs) from different providers.",
+            subText: "Balance risks and reward by investing in domestic and foreign markets.",
             showMoreText: [
-                { text: 'Contribute pre-tax income and have taxable withdrawals.' },
-                { text: 'Potential earnings grow tax-deferred.' },
-                { text: 'Penality applied to some withdrawals made before age 59%.' },
-                { text: 'Required minimum distributions (RMDs) start at age 72.' },
-                { text: 'No age limit to begin contributing as long as you have earned income.' }
+                { text: 'Average expense ration of 0.13%.' },
+                { text: 'A combination of various ETFs focused on specific classes (such as U.S. stocks and international stocks).' },
+                { text: 'Aim for a market average performance with select areas of enhancement.' }
             ]
         },
         {
             text: "Sustainability Focused",
-            subText: "Divercified ETFs that incorporate environmental, social, and governance (ESG) considerations and criteria.",
-            showMoreText: [{
-                text: "Divercified ETFs that incorporate environmental, social, and governance (ESG) considerations and criteria."
-            }]
+            subText: "Balances risk and reward while incorporating environmental, social, and governance (ESG) principles.",
+            showMoreText: [
+                { text: 'Average expense ration of 0.13%.' },
+                { text: 'A combination of various ETFs focused on specific classes (such as U.S. stocks and international stocks) that meet our ESG criteria.' },
+                { text: 'ESG includes criteria related to sustainable business practices, ethical behavior, and corporate governance.' },
+                { text: 'This investment strategy may have less exposure to some market sectors, which could result in a market performance that is lower or higher than strategies that do not incorporate ESG factors.' }
+            ]
         }
     ];
 

@@ -11,6 +11,7 @@ import { ScrollView } from 'react-native';
 import { ButtonsComp } from './ButtonComp';
 import { UserEnroll } from './UserEnroll';
 import { Footer } from '../common_components/Footer';
+import { BottomNavigation } from '../common_components/BottomNavigation';
 
 export const MainUserEnroll = ({navigation}: {navigation: any}) => {
 
@@ -22,7 +23,7 @@ export const MainUserEnroll = ({navigation}: {navigation: any}) => {
         <Footer />
       </ScrollView>
       <ButtonsComp navigation={navigation} />
-      {/* <BottomNavigation /> */}
+      <BottomNavigation navigation={navigation} />
     </>
   );
 }
