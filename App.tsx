@@ -32,7 +32,7 @@ function App(): JSX.Element {
 
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName='Redirect' screenOptions={{headerShown: false}}>
+      <Stack.Navigator initialRouteName='Start' screenOptions={{headerShown: false}}>
       <Stack.Screen name='Redirect' component={MainRedirection}/>
         <Stack.Screen name='Start' component={MainGetStarted}/>
         <Stack.Screen name='Enroll' component={MainUserEnroll}/>
