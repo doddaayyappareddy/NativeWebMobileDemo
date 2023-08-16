@@ -45,17 +45,17 @@ export const ButtonsComp = ({ navigation }: { navigation: any }) => {
                 titleStyle={{ color: 'black', fontWeight: 'bold' }}
                 title="Are you sure?"
                 message={
-                    <View>
-                        <View style={{ marginLeft: -5, alignSelf: 'center', borderBottomColor: 'black', borderBottomWidth: 1, height: '50%', width: '104%' }} />
-                        <ScrollView style={{ height: 100, width: '100%' }}>
-                            <Text style={{ color: 'black', fontSize: 12 }}>{'\n'}
-                                Your response seems inconsistent with your investment risk answer. {'\n'}Select "No" to review or update
+                    <View style={{ width: 300,}}>
+
+                        <ScrollView>
+                            <Text style={{ height: 60, width: 300, color: 'black', fontSize: 12 }}>{'\n'}
+                                Your response seems inconsistent with your investment risk answer. Select "No" to review or update
                                 your response to the last question. Select "Yes" to continue. {'\n'}{'\n'}</Text>
                         </ScrollView>
-                        <View style={{ marginLeft: -5, alignSelf: 'center', borderBottomColor: 'black', borderBottomWidth: 1, height: '50%', width: '104%' }} />
+
                     </View>
                 }
-                messageStyle={{ marginLeft: -20, paddingLeft: 10, marginRight: -20, paddingRight: 5, }}
+                messageStyle={{ }}
                 closeOnTouchOutside={false}
                 closeOnHardwareBackPress={false}
                 showCancelButton={true}
