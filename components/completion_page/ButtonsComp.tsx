@@ -40,7 +40,7 @@ export const ButtonsComp = ({navigation}: {navigation: any}) => {
     return (
         <>
             <View style={styles.multiButtonContainer}>
-                <TouchableOpacity style={styles.back_button} onPress={() => navigation.navigate('Start')}>
+                <TouchableOpacity style={styles.back_button} onPress={() => navigation.navigate('SignOff')}>
                     <Text style={styles.back_button_text}>Sign Off</Text>
                 </TouchableOpacity>
                 <TouchableOpacity style={styles.next_button} onPress={() => navigation.navigate('Start')}>
