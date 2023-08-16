@@ -48,7 +48,7 @@ export const ButtonsComp = ({ navigation }: { navigation: any }) => {
                     <View style={{ width: 300,}}>
 
                         <ScrollView>
-                            <Text style={{ height: 60, width: 300, color: 'black', fontSize: 12 }}>{'\n'}
+                            <Text style={{ height: 70, width: 300, color: 'black', fontSize: 12, paddingRight:10 }}>{'\n'}
                                 Your response seems inconsistent with your investment risk answer. Select "No" to review or update
                                 your response to the last question. Select "Yes" to continue. {'\n'}{'\n'}</Text>
                         </ScrollView>
