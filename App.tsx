@@ -25,6 +25,7 @@ import { AccountSummary } from './components/redirection_page/AccountSummary';
 import { SignOff } from './components/sign_off/SignOff';
 import MainSignOff from './components/sign_off/MainSignOff';
 import MainNeedHelp from './components/need_help/MainNeedHelp';
+import { Home } from './components/redirection_page/Home';
 
 const Stack = createNativeStackNavigator();
 
@@ -32,9 +33,10 @@ function App(): JSX.Element {
 
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName='Redirect' screenOptions={{headerShown: false}}>
+      <Stack.Navigator initialRouteName='Home' screenOptions={{headerShown: false}}>
       <Stack.Screen name='Redirect' component={MainRedirection}/>
         <Stack.Screen name='Start' component={MainGetStarted}/>
+        <Stack.Screen name='Home' component={Home}/>
         <Stack.Screen name='Enroll' component={MainUserEnroll}/>
         <Stack.Screen name='Risk' component={MainRiskWillingness}/>
         <Stack.Screen name='MarketFluctuation' component={MainMarketFluctuation}/>

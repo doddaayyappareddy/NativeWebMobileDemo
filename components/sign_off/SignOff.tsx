@@ -60,7 +60,7 @@ export const SignOff = ({navigation}: {navigation: any}) => {
                     <Text style={styles.baseSubText}>{'You\'ve securely ended your session.'}</Text>
 
                     <TouchableOpacity style={styles.startButton}
-                        onPress={() => navigation.navigate('Redirect')}>
+                        onPress={() => navigation.navigate('Home')}>
                         <Icon name="lock-closed" size={15} />
                         <Text style={{ color: 'black', fontWeight: "bold", fontSize: 15 }}>{'  Sign on'}</Text>
                     </TouchableOpacity>

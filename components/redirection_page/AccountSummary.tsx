@@ -1,10 +1,12 @@
 import React, { FC, ReactElement, useState } from "react";
-import { Button, Image, Text, View, Linking, Animated, SafeAreaView, TouchableOpacity, Platform } from "react-native";
+import { Button, Image, Text, View, Linking, Animated, SafeAreaView, TouchableOpacity, Platform, ScrollView } from "react-native";
 import StyleSheet from 'react-native-media-query';
 import MainGetStarted from "../get_started/MainGetStarted";
 import { NavigationContainer } from "@react-navigation/native";
 
 import { WebView } from 'react-native-webview';
+import { BottomNavigation } from "../common_components/BottomNavigation";
+
 
 export const AccountSummary = ({ navigation }: { navigation: any }) => {
 
@@ -69,7 +71,7 @@ export const AccountSummary = ({ navigation }: { navigation: any }) => {
             borderRadius: 30,
             justifyContent: 'center',
             alignItems: 'center'
-        }, 
+        },
     });
 
     const onRadioButtonPress = (itemIdx: any) => {
@@ -78,27 +80,23 @@ export const AccountSummary = ({ navigation }: { navigation: any }) => {
 
     return (
         <>
-            {
-                Platform.OS === "web" ? (
-                    <View>
-                    <TouchableOpacity style={styles.back_button} onPress={() => navigation.navigate('Redirect')}>
-                        <Text style={styles.back_button_text}>Back</Text>
-                    </TouchableOpacity>
-                        <iframe src="https://jsonplaceholder.typicode.com/guide/" height={'1000'} width={'100%'} />
-                    </View>
-                    // console.log('Hello')
-                ) : (
-                    <View style={{ flex: 1 }}>
-                        <WebView
-                            source={{ uri: "https://jsonplaceholder.typicode.com/guide/" }}
-                            style={{ marginTop: 22, flex: 1 }}
-                        />
-                        <TouchableOpacity style={styles.back_button} onPress={() => navigation.navigate('Redirect')}>
-                            <Text style={styles.back_button_text}>Account Creation</Text>
-                        </TouchableOpacity>
-                    </View>
-                )
-            }
+            <ScrollView>
+                {
+                    Platform.OS === "web" ? (
+                        <View>
+                            <iframe src="https://jsonplaceholder.typicode.com/guide/" height={'1000'} width={'100%'} />
+                        </View>
+                    ) : (
+                        <View style={{ flex: 1 }}>
+                            <WebView
+                                source={{ uri: "https://jsonplaceholder.typicode.com/guide/" }}
+                                style={{ marginTop: 22, flex: 1 }}
+                            />
+                        </View>
+                    )
+                }
+            </ScrollView>
+            <BottomNavigation navigation={navigation} />
         </>
     );
 };

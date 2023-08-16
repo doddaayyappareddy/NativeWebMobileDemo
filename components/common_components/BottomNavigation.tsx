@@ -28,10 +28,22 @@ export const BottomNavigation = ({ navigation }: { navigation: any }) => {
     return (
         <>
             <View style={styles.multiButtonContainer}>
-                <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('Start')}>
+                <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('Home')}>
                     <View style={{ alignItems: 'center' }}>
                         <Icon name="home-outline" size={15} />
-                        <Text style={styles.button_text}>Accounts</Text>
+                        <Text style={styles.button_text}>Home</Text>
+                    </View>
+                </TouchableOpacity>
+                <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('Start')}>
+                    <View style={{ alignItems: 'center' }}>
+                        <Icon name="construct-outline" size={15} />
+                        <Text style={styles.button_text}>Account</Text>
+                    </View>
+                </TouchableOpacity>
+                <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('AccountSumaary')}>
+                    <View style={{ alignItems: 'center' }}>
+                        <Icon name="home-outline" size={15} />
+                        <Text style={styles.button_text}>Activity</Text>
                     </View>
                 </TouchableOpacity>
                 <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('NeedHelp')}>
