@@ -74,7 +74,7 @@ export const RiskWillingness = ({navigation}: {navigation: any}) => {
                 <Text style={{ marginLeft: 20, fontSize: 20, fontFamily: "Helvetica, sans-serif" }}>Your Risk Willingness</Text>
                 <Text>{'\n'}</Text>
                 {/* <ProgressBar progress={30} height={7} backgroundColor="#4a0072" animated={false}/> */}
-                <Text style={{ marginLeft: 20, marginRight: 20, fontSize: 15 }}>{willingness_text}</Text>
+                <Text style={{ marginLeft: 20, marginRight: 20, fontSize: 15, fontFamily: "Georgia, serif" }}>{willingness_text}</Text>
                 <Text>{'\n'}</Text>
                 <View style={styles.progressBar}>
                     <Animated.View style={styles.absoluteFill} />
@@ -88,11 +88,11 @@ export const RiskWillingness = ({navigation}: {navigation: any}) => {
                         <Image source={sampleImage} style={{ width: 80, height: 80, borderRadius: 40, borderWidth: 3 }} />
                         <Text>{'\n'}</Text>
                         <Text>{'\n'}</Text>
-                        <Text>Risk Return: Highest growth and loss potential,</Text>
-                        <Text>with higher volatility</Text>
-                        <Text>(Focused mostly on asset appreciation)</Text>
+                        <Text style={{ fontFamily: "Georgia, serif" }}>Risk Return: Highest growth and loss potential,</Text>
+                        <Text style={{ fontFamily: "Georgia, serif" }}>with higher volatility</Text>
+                        <Text style={{ fontFamily: "Georgia, serif" }}>(Focused mostly on asset appreciation)</Text>
                         <Text>{'\n'}</Text>
-                        <Text>Mix: Mostly stocks with limited bonds</Text>
+                        <Text style={{ fontFamily: "Georgia, serif" }}>Mix: Mostly stocks with limited bonds</Text>
                         <Text>{'\n'}</Text>
                     </View>
 

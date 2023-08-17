@@ -133,10 +133,10 @@ export const UserEnroll = ({navigation}: {navigation: any}) => {
       <>
         <View style={{backgroundColor: "#e2dede"}}>
             <Text>{'\n'}</Text>
-            <Text style={{marginLeft: 20, fontSize: 25}}>Welcome, ABCDEF</Text>
+            <Text style={{marginLeft: 20, fontSize: 25, fontFamily: "Georgia, serif"}}>Welcome, ABCDEF</Text>
             <Text>{'\n'}</Text>
             {/* <ProgressBar progress={30} height={7} backgroundColor="#4a0072" animated={false}/> */}
-            <Text style={{marginLeft: 20, fontSize: 15}}>{willingness_text}</Text>
+            <Text style={{marginLeft: 20, fontSize: 15, fontFamily: "Georgia, serif"}}>{willingness_text}</Text>
             <Text>{'\n'}</Text>
             <View style={styles.progressBar}>
                 <Animated.View style={styles.absoluteFill}/>
@@ -149,7 +149,7 @@ export const UserEnroll = ({navigation}: {navigation: any}) => {
                     <Image source={require('../../assets/images/user.jpeg')}  style={{width: 100, height: 100}}/>
                     <Text>{'\n'}</Text>
                     <View style={styles.rowContainer}>
-                    <Text style={{fontSize:14}}>I'm Investing to </Text>
+                    <Text style={{fontSize:14,fontFamily: "Georgia, serif"}}>I'm Investing to </Text>
                      <View style={{width:150,marginTop:-25}}>     
                      <Dropdown
                         style={[styles.dropdown, isFocus && { borderColor: 'blue' }]}
@@ -176,7 +176,7 @@ export const UserEnroll = ({navigation}: {navigation: any}) => {
                     </View>  
                     </View>
                     <View style={styles.rowContainer}>
-                    <Text style={{fontSize:14}}>I'll start needing this money in </Text>
+                    <Text style={{fontSize:14, fontFamily: "Georgia, serif"}}>I'll start needing this money in </Text>
                      <View style={{width:125,marginTop:-25}}>     
                      <Dropdown
                         style={[styles.dropdown, isFocus && { borderColor: 'blue' }]}
@@ -202,7 +202,7 @@ export const UserEnroll = ({navigation}: {navigation: any}) => {
                     </View>  
                     </View> 
                     <View style={styles.rowContainer}>
-                    <Text style={{fontSize:14}}>I'll initiall invest </Text>
+                    <Text style={{fontSize:14, fontFamily: "Georgia, serif"}}>I'll initiall invest </Text>
                     <View style={{width:150,marginTop:-25}}>     
                      <Dropdown
                         style={[styles.dropdown, isFocus && { borderColor: 'blue' }]}
@@ -228,7 +228,7 @@ export const UserEnroll = ({navigation}: {navigation: any}) => {
                     </View>
                     </View>  
                     <View style={[{marginLeft:'2%'},styles.rowContainer]}>
-                    <Text style={{fontSize:14, width:150, textAlign:"right"}}>In an emergency, I </Text>
+                    <Text style={{fontSize:14, width:150, textAlign:"right", fontFamily: "Georgia, serif"}}>In an emergency, I </Text>
                     <View style={{width:100,marginTop:-25}}>     
                      <Dropdown
                         style={[styles.dropdown, isFocus && { borderColor: 'blue' }]}
@@ -252,13 +252,13 @@ export const UserEnroll = ({navigation}: {navigation: any}) => {
                         setIsFocus(true);
                         }}/>
                     </View>
-                     <Text style={{fontSize:14}}>need to </Text>
-                     <Text style={{marginLeft:'24%',marginTop:10}}>access this money</Text>            
+                     <Text style={{fontSize:14, fontFamily: "Georgia, serif"}}>need to </Text>
+                     <Text style={{marginLeft:'24%',marginTop:10, fontFamily: "Georgia, serif"}}>access this money</Text>            
                     </View> 
                               
                 </View>
                 
-                <Text style={{margin:20,fontSize:14}} onPress={() => Linking.openURL('https://google.com')}>
+                <Text style={{margin:20,fontSize:14, fontFamily: "Georgia, serif",}} onPress={() => Linking.openURL('https://google.com')}>
                     {'Why this information matters'}
                 </Text>
             </View>

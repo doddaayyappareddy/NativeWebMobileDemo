@@ -22,6 +22,7 @@ export const BottomNavigation = ({ navigation }: { navigation: any }) => {
         button_text: {
             fontSize: 12,
             color: "#00698c",
+            fontFamily: "Georgia, serif"
         },
     });
 

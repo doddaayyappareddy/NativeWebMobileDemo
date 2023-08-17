@@ -45,6 +45,7 @@ export const GetStarted = ({navigation}: {navigation: any}) => {
             color: '#946e3a',
             fontStyle: 'italic',
             fontWeight: 400,
+            fontFamily: "Georgia, serif",
             justifyContent: 'center',
             marginLeft: 20,
             marginTop: 20
@@ -64,14 +65,14 @@ export const GetStarted = ({navigation}: {navigation: any}) => {
 
                     <TouchableOpacity style={styles.startButton}
                         onPress={() => navigation.navigate('Enroll')}>
-                        <Text style={{ color: '#fff', fontWeight: "bold" }}>Get Started</Text>
+                        <Text style={{ color: '#fff', fontWeight: "bold", fontFamily: "Georgia, serif", }}>Get Started</Text>
                     </TouchableOpacity>
                 </ImageBackground>
                 <View>
                     <Text style={styles.belowText}> {'With Intuitive Investor'}{'\u00AE'}{', you get:'} </Text>
                     {
                         data.map((item) =>
-                            <Text key={item.key} style={{ fontSize: 15, marginLeft: 20, marginRight: 20, paddingTop: 10 }}>
+                            <Text key={item.key} style={{ fontSize: 15, marginLeft: 20, marginRight: 20, paddingTop: 10, fontFamily: "Georgia, serif" }}>
                                 {'\u2B24' + ' '}{item.key}
                             </Text>
                         )
