@@ -20,7 +20,7 @@ const contactInfo = [
             marginLeft: 20,
             marginRight: 20,
             marginBottom: 20,
-            height: 400,
+            height: 250,
             fontFamily: "Helvetica, sans-serif",
             fontSize: 12,
             marginLeft: 20,
@@ -57,23 +57,6 @@ const contactInfo = [
                <Text> 2. You authorize our team to make inquiries considered appropriate in deciding to open and maintain your XXX account, This may include obtaining all other background reports. </Text>
                <Text>{'\n'}</Text>
                <Text> 3. You may agree that we may contact you. </Text>
-               <Text>{'\n'}</Text>
-               <Text> We may need to contact you about your application. By continuing, you agree that our team may: </Text>
-               <Text>{'\n'}</Text>
-                <View>
-
-                                   {
-                                       contactInfo.map((item) =>
-                                           <Text key={item.key} style={{ fontSize: 10, marginLeft: 20, marginRight: 20, paddingTop: 10 }}>
-                                               {'\u25CF' + ' '}{item.key}
-                                           </Text>
-                                       )
-                                   }
-                </View>
-                <Text>{'\n'}</Text>
-               <Text> 4. You acknowledge that XXX accounts are exclusively online accounts. </Text>
-               <Text>{'\n'}</Text>
-               <Text> 5. You certify that all information you provided is true, complete and correct. </Text>
                <Text>{'\n'}</Text>
                <Text> By selecting <Text  style={{fontWeight: "bold"}}>Agree and Continue</Text>, you agree to the above. </Text>
             </View>
